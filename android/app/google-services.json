@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "739924250673",
+    "project_id": "shed-solution",
+    "storage_bucket": "shed-solution.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739924250673:android:d193eeb95e74c9b8350510",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI_F6dB-MQENeYaQjGbopKz6jSxpAicvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

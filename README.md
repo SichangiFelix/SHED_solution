@@ -1,16 +1,20 @@
-# project
+# SHED (Sexual Health Education)
+This project is a mobile application built to sensitize and provide accurate information on matters sexual health.
+It is built for the youth in tertiary institutions in mind.
 
-A new Flutter project.
+## How to get started
+...
+## Technologies used
 
-## Getting Started
+### Flutter framework for front-end
+Flutter is a cross-platform framework used to build application for mobile, web and desktop.  
+It uses dart programming language.  
+Get to know more about flutter [here](https://flutter.dev/)
 
-This project is a starting point for a Flutter application.
+### Firebase for back-end
+Firebase is used for the backend.  
+Get to know more about firebase [here](https://firebase.google.com/?gclid=CjwKCAiA9NGfBhBvEiwAq5vSy8hVEWYKMIYYWkOin8J15i8BwTWicRxPGTI2Zq7fYGDTi9SDNgSU5hoCsTUQAvD_BwE&gclsrc=aw.ds)  
 
-A few resources to get you started if this is your first Flutter project:
+### Figma   
+Figma has been used to design SHED screens
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.

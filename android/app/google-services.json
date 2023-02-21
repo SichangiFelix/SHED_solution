@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "739924250673",
+    "project_id": "shed-solution",
+    "storage_bucket": "shed-solution.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:739924250673:android:d193eeb95e74c9b8350510",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "739924250673-jpkoek1e9bnt2qq94jdl3ctacdp5pi22.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.project",
+            "certificate_hash": "ef1b84a6097d627cef7b70d808017ee69472b02a"
+          }
+        },
+        {
+          "client_id": "739924250673-t5hvkkvfra16pvpcbek101ivpp3sctak.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDI_F6dB-MQENeYaQjGbopKz6jSxpAicvM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "739924250673-t5hvkkvfra16pvpcbek101ivpp3sctak.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "739924250673-5qv8luaio10dhrj4smkbres4mi8lur1u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.project"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

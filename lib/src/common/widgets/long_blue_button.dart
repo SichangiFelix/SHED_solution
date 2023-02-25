@@ -18,6 +18,13 @@ class LongBlueButton extends StatelessWidget {
 
     return Container(
         width: screenWidth/1.15,
-        child: ElevatedButton(onPressed: press, child: Text(buttonName), ));
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            textStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w400,
+          ),
+          ),
+          onPressed: press, child: Text(buttonName), ));
   }
 }

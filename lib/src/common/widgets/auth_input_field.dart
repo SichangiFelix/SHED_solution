@@ -16,6 +16,7 @@ class AuthInputField extends StatelessWidget {
 
     return Container(
       width: screenWidth/1.15,
+      height: screenHeight/35,
       child: TextFormField(
         controller: controller,
         decoration: const InputDecoration(

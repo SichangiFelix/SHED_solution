@@ -20,12 +20,16 @@ class GoogleSigninButton extends StatelessWidget {
         width: screenWidth/1.15,
         child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-                alignment: Alignment.center,
+                textStyle: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                ),
+                alignment: Alignment.centerRight,
                 side: BorderSide(
                   width: 1,
                 )
             ),
             onPressed: press,
-            child: Center(child: child)));
+            child: child));
   }
 }

@@ -1,81 +1,58 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:project/src/features/authentication/screens/login_page.dart';
-import 'package:project/src/features/authentication/screens/signup_page.dart';
+
+import '../authentication/login_page.dart';
+import '../authentication/signup_page.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
-      body: SafeArea(
+
+      body: Center(
         child: Stack(
           children: [
+
             Container(
-              height: screenHeight,
-              width: screenWidth,
+
+             decoration: BoxDecoration(
+               image: DecorationImage(image: NetworkImage('https://wallpapercave.com/dwp1x/wp5534738.jpg',),fit: BoxFit.cover)
+             ),
             ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: (screenWidth - screenWidth/1.15)/2),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                //mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(height: screenHeight/10,),
-                  const Text(
-                    'Educating the Public On Sexual Health Information & Awareness',
-                    style: TextStyle(
-                      fontSize: 21,
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  Expanded(child: SizedBox.shrink()),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                          width: screenWidth / 2.5,
-                          child: ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                textStyle: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                              ),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const LoginPage()));
-                              },
-                              child: const Text("Sign in"))),
-                      Container(
-                          width: screenWidth / 2.5,
-                          child: OutlinedButton(
-                              style: OutlinedButton.styleFrom(
-                                  textStyle: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                  side: const BorderSide(
-                                    width: 1,
-                                  )),
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => const SignupPage()));
-                              },
-                              child: const Text("Sign up"))),
-                    ],
-                  ),
-                  SizedBox(height: screenHeight/10,),
-                ],
-              ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                margin: EdgeInsets.only(left: 50,right: 50,bottom: 50),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    ElevatedButton(
+                        onPressed:(){
+                          Navigator.push(context, MaterialPageRoute(
+                              builder: (context)=>LoginPage()));
+                        }, child: const Text("Sign In")),
+                    ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpPage()));
+
+                        }, child: const Text("Sign Up")),
+                  ],
+                ),
+              )
             ),
+            Align(
+              alignment: Alignment.topCenter,
+                child:Container(
+                  margin: EdgeInsets.only(left: 15,right: 15,top: 50),
+                  child:Text('Educating the Public on \n '
+                      'Sexual Health Information \n'
+                      '& Awareness',style: TextStyle(
+                      color: Colors.white,fontSize: 26,fontWeight: FontWeight.bold),)
+                ),
+
+            )
           ],
         ),
       ),

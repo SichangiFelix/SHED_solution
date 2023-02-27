@@ -1,8 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:project/src/features/authentication/home_page.dart';
-import 'package:project/src/features/authentication/signup_page.dart';
 
+import '../../landing/landing_page.dart';
+import 'login_page.dart';
 
 class AuthPage extends StatelessWidget{
   const AuthPage({super.key});
@@ -16,7 +17,7 @@ class AuthPage extends StatelessWidget{
           if(snapshot.hasData){
             return HomePage();
           } else {
-            return const SignUpPage();
+            return const LandingPage();
           }
         },
       ),

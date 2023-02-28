@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:project/src/common/widgets/auth_input_field.dart';
 import 'package:project/src/common/widgets/long_blue_button.dart';
-import 'package:project/src/features/authentication/screens/otp_page.dart';
+import 'package:project/src/features/authentication/authservices/reset_password_service.dart';
+import 'package:project/src/features/authentication/screens/login_page.dart';
 
 import '../common/text_style.dart';
 
@@ -39,7 +40,8 @@ class ForgotPasswordPage extends StatelessWidget {
             AuthInputField(controller: controller),
             SizedBox(height: screenHeight/20,),
             LongBlueButton(buttonName: "Continue", press: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> OtpPage()));
+              ResetPasswordService().resetPassword(controller.text);
+              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
             }),
           ],
         ),

@@ -17,25 +17,25 @@ class LandingPage extends StatelessWidget {
 
             Container(
 
-             decoration: BoxDecoration(
+             decoration: const BoxDecoration(
                image: DecorationImage(image: NetworkImage('https://wallpapercave.com/dwp1x/wp5534738.jpg',),fit: BoxFit.cover)
              ),
             ),
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                margin: EdgeInsets.only(left: 50,right: 50,bottom: 50),
+                margin: const EdgeInsets.only(left: 50,right: 50,bottom: 50),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     ElevatedButton(
                         onPressed:(){
                           Navigator.push(context, MaterialPageRoute(
-                              builder: (context)=>LoginPage()));
+                              builder: (context)=>const LoginPage()));
                         }, child: const Text("Sign In")),
                     ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SignupPage()));
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>const SignupPage()));
 
                         }, child: const Text("Sign Up")),
                   ],
@@ -45,8 +45,8 @@ class LandingPage extends StatelessWidget {
             Align(
               alignment: Alignment.topCenter,
                 child:Container(
-                  margin: EdgeInsets.only(left: 15,right: 15,top: 50),
-                  child:Text('Educating the Public on \n '
+                  margin: const EdgeInsets.only(left: 15,right: 15,top: 50),
+                  child:const Text('Educating the Public on \n '
                       'Sexual Health Information \n'
                       '& Awareness',style: TextStyle(
                       color: Colors.white,fontSize: 26,fontWeight: FontWeight.bold),)

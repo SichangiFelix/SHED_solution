@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 class GoogleSigninButton extends StatelessWidget {
 
   VoidCallback press;
-  Widget child;
+  String text;
 
   GoogleSigninButton({
-    required this.child,
+    required this.text,
     required this.press,
     Key? key,
   }) : super(key: key);
@@ -30,6 +30,15 @@ class GoogleSigninButton extends StatelessWidget {
                 )
             ),
             onPressed: press,
-            child: child));
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+               Icon(Icons.g_mobiledata, color: Colors.green, size: 40,),
+                const SizedBox(
+                  width: 10,
+                ),
+                Text(text)
+              ],
+            )));
   }
 }

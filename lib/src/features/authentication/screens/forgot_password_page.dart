@@ -19,14 +19,14 @@ class ForgotPasswordPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('Forgot Password', style: AuthTextStyle.pageHeader,),
+        title: const Text('Forgot Password', style: AuthTextStyle.pageHeader,),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: (screenWidth - screenWidth/1.15)/2),
         child: Column(
           children: [
             SizedBox(height: screenHeight/10,),
-            Align(
+            const Align(
               alignment: Alignment.centerLeft,
               child: Text("Please enter email linked to your account",
                 style: TextStyle(

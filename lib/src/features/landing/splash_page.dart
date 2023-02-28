@@ -37,7 +37,7 @@ class _SplashPageState extends State<SplashPage> {
                     ]),
               ),
             ),
-            Align(
+            const Align(
               alignment: Alignment.center,
               child: Icon(Icons.circle_outlined,size: 70,),
             )

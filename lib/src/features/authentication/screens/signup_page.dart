@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:project/src/features/authentication/authservices/signup_service.dart';
 
 import '../../../common/widgets/auth_input_field.dart';
@@ -81,6 +80,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 )),
             AuthInputField(
+              isObsecured: true,
               controller: passwordController,
             ),
             SizedBox(
@@ -96,6 +96,7 @@ class _SignupPageState extends State<SignupPage> {
                   ),
                 )),
             AuthInputField(
+              isObsecured: true,
               controller: confirmPasswordController,
             ),
             SizedBox(
@@ -124,19 +125,8 @@ class _SignupPageState extends State<SignupPage> {
                       MaterialPageRoute(
                           builder: (context) => const AuthPage()));
                 },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(
-                      "assets/icons/google_icon.svg",
-                      width: 17.85,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text("Sign up with Google")
-                  ],
-                )),
+              text: "Sign up with google",
+                ),
           ],
         ),
       ),

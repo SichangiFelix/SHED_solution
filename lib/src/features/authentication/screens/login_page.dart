@@ -55,6 +55,7 @@ class _LoginPageState extends State<LoginPage> {
                   fontWeight: FontWeight.w400,
                 ),)),
             AuthInputField(
+              isObsecured: true,
               controller: passwordController,
             ),
             SizedBox(height: screenHeight/70,),
@@ -62,7 +63,7 @@ class _LoginPageState extends State<LoginPage> {
               onTap: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgotPasswordPage()));
               },
-              child: Text("Forgot Password?", style: TextStyle(
+              child: const Text("Forgot Password?", style: TextStyle(
                 fontSize: 12,
                 fontWeight: FontWeight.w400,
               ),),
@@ -81,14 +82,7 @@ class _LoginPageState extends State<LoginPage> {
                   LoginService().signInWithGoogle();
                   Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthPage()));
                 },
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset("assets/icons/google_icon.svg", width: 17.85,),
-                    const SizedBox(width: 10,),
-                    const Text("Sign in with Google")
-                  ],
-                )),
+              text: "Sign in with google",),
           ],
         ),
       ),

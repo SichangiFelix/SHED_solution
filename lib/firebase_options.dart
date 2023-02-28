@@ -44,38 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBclcEXX7_R1gHRtWZ6vexXsyLZx6VZxtw',
-    appId: '1:739924250673:web:620e587f4fbf8070350510',
-    messagingSenderId: '739924250673',
-    projectId: 'shed-solution',
-    authDomain: 'shed-solution.firebaseapp.com',
-    storageBucket: 'shed-solution.appspot.com',
-    measurementId: 'G-MLZ368V1EE',
+    apiKey: 'AIzaSyBUjja2XAq64_DCSWlDYSgcyWR640dlFxo',
+    appId: '1:1028934429651:web:aeae8116c241f34c205d26',
+    messagingSenderId: '1028934429651',
+    projectId: 'shed-solution-68012',
+    authDomain: 'shed-solution-68012.firebaseapp.com',
+    storageBucket: 'shed-solution-68012.appspot.com',
+    measurementId: 'G-EM36H5T7NX',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDI_F6dB-MQENeYaQjGbopKz6jSxpAicvM',
-    appId: '1:739924250673:android:d193eeb95e74c9b8350510',
-    messagingSenderId: '739924250673',
-    projectId: 'shed-solution',
-    storageBucket: 'shed-solution.appspot.com',
+    apiKey: 'AIzaSyC12afVcMYtN2ZusO5tk8adj316_WaBqB0',
+    appId: '1:1028934429651:android:656d47d471f050d3205d26',
+    messagingSenderId: '1028934429651',
+    projectId: 'shed-solution-68012',
+    storageBucket: 'shed-solution-68012.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAon9MmEhw9WmKoekV-NSmoVwBWX1tql4w',
-    appId: '1:739924250673:ios:6d0ac5ebae1d8898350510',
-    messagingSenderId: '739924250673',
-    projectId: 'shed-solution',
-    storageBucket: 'shed-solution.appspot.com',
+    apiKey: 'AIzaSyAt5BurATpRh3KxKr7_j7nYI8K_-N27pwY',
+    appId: '1:1028934429651:ios:16974df3798e6916205d26',
+    messagingSenderId: '1028934429651',
+    projectId: 'shed-solution-68012',
+    storageBucket: 'shed-solution-68012.appspot.com',
+    iosClientId: '1028934429651-lsb6i7imcom4ebng94l9u5cjpl60c5nl.apps.googleusercontent.com',
     iosBundleId: 'com.example.project',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAon9MmEhw9WmKoekV-NSmoVwBWX1tql4w',
-    appId: '1:739924250673:ios:6d0ac5ebae1d8898350510',
-    messagingSenderId: '739924250673',
-    projectId: 'shed-solution',
-    storageBucket: 'shed-solution.appspot.com',
+    apiKey: 'AIzaSyAt5BurATpRh3KxKr7_j7nYI8K_-N27pwY',
+    appId: '1:1028934429651:ios:16974df3798e6916205d26',
+    messagingSenderId: '1028934429651',
+    projectId: 'shed-solution-68012',
+    storageBucket: 'shed-solution-68012.appspot.com',
+    iosClientId: '1028934429651-lsb6i7imcom4ebng94l9u5cjpl60c5nl.apps.googleusercontent.com',
     iosBundleId: 'com.example.project',
   );
 }

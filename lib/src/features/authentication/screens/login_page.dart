@@ -6,8 +6,8 @@ import 'package:project/src/features/authentication/screens/forgot_password_page
 import '../../../common/widgets/auth_input_field.dart';
 import '../../../common/widgets/google_signin_button.dart';
 import '../../../common/widgets/long_blue_button.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
+import '../authservices/AuthExceptionHandler.dart';
 import '../common/text_style.dart';
 
 class LoginPage extends StatefulWidget {
@@ -70,9 +70,14 @@ class _LoginPageState extends State<LoginPage> {
             ),),
             SizedBox(height: screenHeight/20,),
             LongBlueButton(
-              press: () {
-                LoginService().signUserIn(emailController.text, passwordController.text);
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthPage()));
+              press: () async {
+                final status = await LoginService().signInWithEmailAndPassword(emailController.text, passwordController.text);
+                if(status == AuthStatus.successful){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthPage()));
+                } else {
+                  final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));
+                }
               },
               buttonName: "Sign in",
             ),

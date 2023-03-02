@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class OtpField extends StatelessWidget {
-  const OtpField({Key? key}) : super(key: key);
+
+  TextEditingController controller;
+  OtpField({Key? key, required this.controller}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,6 +16,7 @@ class OtpField extends StatelessWidget {
         textInputAction: TextInputAction.next,
         keyboardType: TextInputType.number,
         onChanged: (_) => FocusScope.of(context).nextFocus(),
+        controller: controller,
         inputFormatters: <TextInputFormatter>[
           FilteringTextInputFormatter.digitsOnly,
           LengthLimitingTextInputFormatter(1)

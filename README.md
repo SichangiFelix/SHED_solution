@@ -16,5 +16,6 @@ Firebase is used for the backend.
 Get to know more about firebase [here](https://firebase.google.com/?gclid=CjwKCAiA9NGfBhBvEiwAq5vSy8hVEWYKMIYYWkOin8J15i8BwTWicRxPGTI2Zq7fYGDTi9SDNgSU5hoCsTUQAvD_BwE&gclsrc=aw.ds)  
 
 ### Figma   
-Figma has been used to design SHED screens
+Figma has been used to design SHED.  
+[Here](https://www.figma.com/file/eW3dQXJeigh3wkJzkRQ69O/SHED?node-id=0%3A1&t=ntYXtEz90n5rPMRI-1) are the designs.
 

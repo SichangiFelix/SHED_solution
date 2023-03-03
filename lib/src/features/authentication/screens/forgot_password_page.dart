@@ -4,6 +4,7 @@ import 'package:project/src/common/widgets/long_blue_button.dart';
 import 'package:project/src/features/authentication/authservices/reset_password_service.dart';
 import 'package:project/src/features/authentication/screens/login_page.dart';
 
+import '../authservices/AuthExceptionHandler.dart';
 import '../common/text_style.dart';
 
 class ForgotPasswordPage extends StatelessWidget {
@@ -39,9 +40,18 @@ class ForgotPasswordPage extends StatelessWidget {
             SizedBox(height: screenHeight/30,),
             AuthInputField(controller: controller),
             SizedBox(height: screenHeight/20,),
-            LongBlueButton(buttonName: "Continue", press: (){
-              ResetPasswordService().resetPassword(controller.text);
-              Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage()));
+            LongBlueButton(
+                buttonName: "Continue",
+                press: () async {
+              final status = await ResetPasswordService().resetPassword(controller.text);
+              if(status == AuthStatus.successful){
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text("Password reset link sent to your email, sign in with new password")));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+              } else {
+                final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
+                ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));
+              }
             }),
           ],
         ),

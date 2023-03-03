@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:project/src/features/authentication/authservices/signup_service.dart';
+import 'package:project/src/features/authentication/home_page.dart';
 
 import '../../../common/widgets/auth_input_field.dart';
 import '../../../common/widgets/google_signin_button.dart';
 import '../../../common/widgets/long_blue_button.dart';
+import '../authservices/AuthExceptionHandler.dart';
 import '../authservices/auth_page.dart';
 import '../authservices/login_service.dart';
 import '../common/text_style.dart';
@@ -103,15 +105,19 @@ class _SignupPageState extends State<SignupPage> {
               height: screenHeight / 20,
             ),
             LongBlueButton(
-              press: () {
-                SignUpService().createUserWithEmailAndPassword(
-                  emailController.text,
-                  passwordController.text,
-                  confirmPasswordController.text,
-                );
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const AuthPage()));
-              },
+               press: () async{
+                AuthStatus status = await SignUpService().createUserWithEmailAndPassword(
+                    emailController.text, passwordController.text, confirmPasswordController.text);
+                if (status == AuthStatus.successful) {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => HomePage()));
+                } else {
+                  final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));
+                }
+                },
               buttonName: "Sign up",
             ),
             SizedBox(

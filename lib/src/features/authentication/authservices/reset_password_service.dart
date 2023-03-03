@@ -1,11 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 
+import 'AuthExceptionHandler.dart';
+
 class ResetPasswordService{
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  Future<void> resetPassword(String email) async {
-    await _firebaseAuth.sendPasswordResetEmail(email: email)
-        .then((value) => print("Password reset email sent"))
-        .catchError((error) => print("Failed to send password reset email: $error"));
+  Future<AuthStatus> resetPassword(String email) async {
+    try {
+      await _firebaseAuth.sendPasswordResetEmail(email: email);
+      return AuthStatus.successful;
+    } on FirebaseAuthException catch (e) {
+      return AuthExceptionHandler.handleAuthException(e);
+    }
+
   }
 }

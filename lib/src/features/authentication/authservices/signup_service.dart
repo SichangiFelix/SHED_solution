@@ -1,27 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:project/src/features/authentication/authservices/AuthExceptionHandler.dart';
 
 class SignUpService {
 // Sign in with email and password method
-  Future<void> createUserWithEmailAndPassword(emailAddress, password, confirmPassword) async {
-    if (verifyPassword(password, confirmPassword)) {
-      try {
-        final credential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-                email: emailAddress, password: password);
-        final user = credential.user;
-        print(user?.email);
-      } on FirebaseAuthException catch (e) {
-// handle no user found error
-        if (e.code == 'user-not-found') {
-          print('No user found for that email.');
-
-// handle wrong password error
-        } else if (e.code == 'wrong-password') {
-          print('Wrong password provided for that user.');
-        }
+  Future<AuthStatus> createUserWithEmailAndPassword(emailAddress, password, confirmPassword) async {
+    try {
+      if (verifyPassword(password, confirmPassword)) {
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: emailAddress, password: password);
+        return AuthStatus.successful;
+      } else {
+        return AuthStatus.passwordsDoNotMatch;
       }
-    } else {
-      print("Passwords do not match");
+    } on FirebaseAuthException catch (e) {
+      print(e);
+      return AuthExceptionHandler.handleAuthException(e);
     }
   }
 

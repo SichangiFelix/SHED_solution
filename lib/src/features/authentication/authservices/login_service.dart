@@ -1,24 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:project/src/features/authentication/authservices/AuthExceptionHandler.dart';
 
 class LoginService {
   // Sign in with email and password method
-  void signUserIn(emailAddress,password ) async {
-    // try sign-in
+  Future<AuthStatus> signInWithEmailAndPassword(
+      emailAddress, password) async {
     try {
-      final credential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: emailAddress, password: password);
-      final user = credential.user;
-      print(user?.email);
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailAddress, password: password);
+      return AuthStatus.successful;
     } on FirebaseAuthException catch (e) {
-      // handle no user found error
-      if (e.code == 'user-not-found') {
-        print('No user found for that email.');
-
-        // handle wrong password error
-      } else if (e.code == 'wrong-password') {
-        print('Wrong password provided for that user.');
-      }
+      return AuthExceptionHandler.handleAuthException(e);
     }
   }
 

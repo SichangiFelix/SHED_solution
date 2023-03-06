@@ -1,5 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import '../data/models/article.dart';
+import '../data/services/articles_services.dart';
+
 
 class HomePage extends StatelessWidget{
   @override
@@ -23,6 +26,15 @@ class HomePage extends StatelessWidget{
 
   Future<void> logout() async {
     await FirebaseAuth.instance.signOut();
+  }
+
+  void loadArticles() async{
+    List<Article> articles = await ArticlesServices().getArticles();
+
+    for(var article in articles){
+      print(article.title);
+      print(article.description);}
+
   }
 
 }

@@ -2,14 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'emergency_situations_screen.dart';
 
-class EmergencyPage extends StatefulWidget {
-  const EmergencyPage({Key? key}) : super(key: key);
-
-  @override
-  State<EmergencyPage> createState() => _EmergencyPageState();
-}
-
-class _EmergencyPageState extends State<EmergencyPage> {
+class EmergencyPage extends StatelessWidget {
+   EmergencyPage({Key? key}) : super(key: key);
 
   List<String> emergencySections = [
     'Emergency Situations',

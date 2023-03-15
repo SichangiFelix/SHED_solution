@@ -7,5 +7,5 @@ import 'home_page.dart';
 List<Widget> homePages = [
   const ShortsPage(),
   const HomePage(),
-  const EmergencyPage(),
+  EmergencyPage(),
 ];

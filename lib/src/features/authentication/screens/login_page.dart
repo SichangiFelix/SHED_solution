@@ -33,62 +33,64 @@ class _LoginPageState extends State<LoginPage> {
         centerTitle: true,
         title: const Text("Sign in", style: AuthTextStyle.pageHeader),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: (screenWidth - screenWidth/1.15)/2),
-        child: Column(
-          children: [
-            SizedBox(height: screenHeight/10,),
-            const Align(
-              alignment: Alignment.centerLeft,
-                child: Text("Email", style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),)),
-            AuthInputField(
-              controller: emailController,
-            ),
-            SizedBox(height: screenHeight/70,),
-            const Align(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: (screenWidth - screenWidth/1.15)/2),
+          child: Column(
+            children: [
+              SizedBox(height: screenHeight/10,),
+              const Align(
                 alignment: Alignment.centerLeft,
-                child: Text("Password", style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),)),
-            AuthInputField(
-              isObsecured: true,
-              controller: passwordController,
-            ),
-            SizedBox(height: screenHeight/70,),
-            Align(alignment: Alignment.centerRight,child: GestureDetector(
-              onTap: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgotPasswordPage()));
-              },
-              child: const Text("Forgot Password?", style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.w400,
-              ),),
-            ),),
-            SizedBox(height: screenHeight/20,),
-            LongBlueButton(
-              press: () async {
-                final status = await LoginService().signInWithEmailAndPassword(emailController.text, passwordController.text);
-                if(status == AuthStatus.successful){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthPage()));
-                } else {
-                  final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));
-                }
-              },
-              buttonName: "Sign in",
-            ),
-            SizedBox(height: screenHeight/50,),
-            GoogleSigninButton(
-                press: () {
-                  LoginService().signInWithGoogle();
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthPage()));
+                  child: Text("Email", style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),)),
+              AuthInputField(
+                controller: emailController,
+              ),
+              SizedBox(height: screenHeight/70,),
+              const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text("Password", style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),)),
+              AuthInputField(
+                isObsecured: true,
+                controller: passwordController,
+              ),
+              SizedBox(height: screenHeight/70,),
+              Align(alignment: Alignment.centerRight,child: GestureDetector(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=> ForgotPasswordPage()));
                 },
-              text: "Sign in with google",),
-          ],
+                child: const Text("Forgot Password?", style: TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w400,
+                ),),
+              ),),
+              SizedBox(height: screenHeight/20,),
+              LongBlueButton(
+                press: () async {
+                  final status = await LoginService().signInWithEmailAndPassword(emailController.text, passwordController.text);
+                  if(status == AuthStatus.successful){
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthPage()));
+                  } else {
+                    final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));
+                  }
+                },
+                buttonName: "Sign in",
+              ),
+              SizedBox(height: screenHeight/50,),
+              GoogleSigninButton(
+                  press: () {
+                    LoginService().signInWithGoogle();
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> const AuthPage()));
+                  },
+                text: "Sign in with google",),
+            ],
+          ),
         ),
       ),
     );

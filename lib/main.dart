@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project/src/features/authentication/authservices/auth_page.dart';
+import 'package:project/src/features/home/screens/home_screen.dart';
 import 'firebase_options.dart';
 import 'src/features/landing/splash_page.dart';
 
@@ -33,7 +34,13 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: AuthPage(),
+      initialRoute: AuthPage.screenRoute,
+      routes: {
+        //Auth
+        AuthPage.screenRoute : (context) => AuthPage(),
+        //Home
+        HomeScreen.screenRoute : (context) => HomeScreen(),
+      },
     );
   }
 }

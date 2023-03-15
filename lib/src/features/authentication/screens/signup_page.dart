@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:project/src/features/authentication/authservices/signup_service.dart';
-import 'package:project/src/features/authentication/home_page.dart';
+import 'package:project/src/features/home/screens/home_screen.dart';
 
 import '../../../common/widgets/auth_input_field.dart';
 import '../../../common/widgets/google_signin_button.dart';
@@ -34,106 +34,105 @@ class _SignupPageState extends State<SignupPage> {
         centerTitle: true,
         title: const Text("Sign up", style: AuthTextStyle.pageHeader),
       ),
-      body: Padding(
-        padding: EdgeInsets.symmetric(
-            horizontal: (screenWidth - screenWidth / 1.15) / 2),
-        child: Column(
-          children: [
-            SizedBox(
-              height: screenHeight / 10,
-            ),
-            const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Name",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+              horizontal: (screenWidth - screenWidth / 1.15) / 2),
+          child: Column(
+            children: [
+              SizedBox(
+                height: screenHeight / 10,
+              ),
+              const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Name",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )),
+              AuthInputField(
+                controller: nameController,
+              ),
+              SizedBox(
+                height: screenHeight / 70,
+              ),
+              const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Email",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )),
+              AuthInputField(
+                controller: emailController,
+              ),
+              SizedBox(
+                height: screenHeight / 70,
+              ),
+              const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Password",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )),
+              AuthInputField(
+                isObsecured: true,
+                controller: passwordController,
+              ),
+              SizedBox(
+                height: screenHeight / 70,
+              ),
+              const Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Confirm Password",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  )),
+              AuthInputField(
+                isObsecured: true,
+                controller: confirmPasswordController,
+              ),
+              SizedBox(
+                height: screenHeight / 20,
+              ),
+              LongBlueButton(
+                 press: () async{
+                  AuthStatus status = await SignUpService().createUserWithEmailAndPassword(
+                      emailController.text, passwordController.text, confirmPasswordController.text);
+                  if (status == AuthStatus.successful) {
+                     Navigator.pushNamed(context, HomeScreen.screenRoute);
+                  } else {
+                    final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
+                    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));
+                  }
+                  },
+                buttonName: "Sign up",
+              ),
+              SizedBox(
+                height: screenHeight / 50,
+              ),
+              GoogleSigninButton(
+                  press: () {
+                    LoginService().signInWithGoogle();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AuthPage()));
+                  },
+                text: "Sign up with google",
                   ),
-                )),
-            AuthInputField(
-              controller: nameController,
-            ),
-            SizedBox(
-              height: screenHeight / 70,
-            ),
-            const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Email",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
-                )),
-            AuthInputField(
-              controller: emailController,
-            ),
-            SizedBox(
-              height: screenHeight / 70,
-            ),
-            const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Password",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
-                )),
-            AuthInputField(
-              isObsecured: true,
-              controller: passwordController,
-            ),
-            SizedBox(
-              height: screenHeight / 70,
-            ),
-            const Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  "Confirm Password",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
-                  ),
-                )),
-            AuthInputField(
-              isObsecured: true,
-              controller: confirmPasswordController,
-            ),
-            SizedBox(
-              height: screenHeight / 20,
-            ),
-            LongBlueButton(
-               press: () async{
-                AuthStatus status = await SignUpService().createUserWithEmailAndPassword(
-                    emailController.text, passwordController.text, confirmPasswordController.text);
-                if (status == AuthStatus.successful) {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => HomePage()));
-                } else {
-                  final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));
-                }
-                },
-              buttonName: "Sign up",
-            ),
-            SizedBox(
-              height: screenHeight / 50,
-            ),
-            GoogleSigninButton(
-                press: () {
-                  LoginService().signInWithGoogle();
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const AuthPage()));
-                },
-              text: "Sign up with google",
-                ),
-          ],
+            ],
+          ),
         ),
       ),
     );

@@ -27,9 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.monetization_on),label: "Budget"),
-          BottomNavigationBarItem(icon: Icon(Icons.book_outlined),label: "Materials"),
-          BottomNavigationBarItem(icon: Icon(Icons.storefront),label: "Marketplace"),
+          BottomNavigationBarItem(icon: Icon(Icons.video_call_outlined),label: "Shorts"),
+          BottomNavigationBarItem(icon: Icon(Icons.house),label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.call),label: "Emergency"),
         ],
       ),
     );

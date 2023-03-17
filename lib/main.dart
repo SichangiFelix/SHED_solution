@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project/src/features/authentication/authservices/auth_page.dart';
+import 'package:project/src/features/emergency/screens/emergency_facilities_screen.dart';
 import 'package:project/src/features/emergency/screens/emergency_situations_screen.dart';
+import 'package:project/src/features/emergency/screens/selected_facility_screen.dart';
+import 'package:project/src/features/emergency/screens/selected_situation_screen.dart';
 import 'package:project/src/features/home/screens/home_screen.dart';
 import 'firebase_options.dart';
 import 'src/features/landing/splash_page.dart';
@@ -44,6 +47,9 @@ class MyApp extends StatelessWidget {
         HomeScreen.screenRoute : (context) => HomeScreen(),
         //Emergency
         EmergencySituationsScreen.screenRoute : (context) => EmergencySituationsScreen(),
+        EmergencyFacilitiesScreen.screenRoute : (context) => EmergencyFacilitiesScreen(),
+        SelectedFacilityScreen.screenRoute : (context) => SelectedFacilityScreen(),
+        SelectedSituationScreen.screenRoute : (context) => SelectedSituationScreen(),
       },
     );
   }

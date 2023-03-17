@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/src/features/emergency/screens/selected_situation_screen.dart';
 
 class EmergencySituationsScreen extends StatelessWidget {
 
@@ -29,7 +30,7 @@ class EmergencySituationsScreen extends StatelessWidget {
             return InkWell(
               onTap: (){
                 if(index == 0){
-                  //Navigator.pushNamed(context, EmergencySituationsScreen.screenRoute);
+                  Navigator.pushNamed(context, SelectedSituationScreen.screenRoute);
                 }else{
                   //Navigator.pushNamed(context, EmergencySituationsScreen.screenRoute);
                 }

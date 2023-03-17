@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/src/features/emergency/screens/emergency_facilities_screen.dart';
 
 import 'emergency_situations_screen.dart';
 
@@ -31,7 +32,7 @@ class EmergencyPage extends StatelessWidget {
                 if(index == 0){
                   Navigator.pushNamed(context, EmergencySituationsScreen.screenRoute);
                 }else{
-                  //Navigator.pushNamed(context, EmergencySituationsScreen.screenRoute);
+                  Navigator.pushNamed(context, EmergencyFacilitiesScreen.screenRoute);
                 }
               },
               child: Container(

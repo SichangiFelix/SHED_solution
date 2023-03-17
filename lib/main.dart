@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:project/src/features/authentication/authservices/auth_page.dart';
+import 'package:project/src/features/emergency/screens/emergency_facilities_screen.dart';
+import 'package:project/src/features/emergency/screens/emergency_situations_screen.dart';
+import 'package:project/src/features/emergency/screens/selected_facility_screen.dart';
+import 'package:project/src/features/emergency/screens/selected_situation_screen.dart';
+import 'package:project/src/features/home/screens/home_screen.dart';
 import 'firebase_options.dart';
 import 'src/features/landing/splash_page.dart';
 
@@ -19,6 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         // This is the theme of your application.
@@ -30,9 +36,21 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
+        fontFamily: "Poppins",
         primarySwatch: Colors.blue,
       ),
-      home: AuthPage(),
+      initialRoute: AuthPage.screenRoute,
+      routes: {
+        //Auth
+        AuthPage.screenRoute : (context) => AuthPage(),
+        //Home
+        HomeScreen.screenRoute : (context) => HomeScreen(),
+        //Emergency
+        EmergencySituationsScreen.screenRoute : (context) => EmergencySituationsScreen(),
+        EmergencyFacilitiesScreen.screenRoute : (context) => EmergencyFacilitiesScreen(),
+        SelectedFacilityScreen.screenRoute : (context) => SelectedFacilityScreen(),
+        SelectedSituationScreen.screenRoute : (context) => SelectedSituationScreen(),
+      },
     );
   }
 }

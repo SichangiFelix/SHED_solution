@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
        SliverPadding(
          padding:  EdgeInsets.only(top: 10),
          sliver: SliverToBoxAdapter(
-             child: TopicView()
+             child: TopicView(title: 'Health Topics',)
          ),
        ),
        SliverPadding(

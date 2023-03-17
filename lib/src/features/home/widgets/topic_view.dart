@@ -42,7 +42,7 @@ class _TopicViewState extends State<TopicView> {
                       width: 50,
                       color: Colors.grey,
                       child: Center(
-                          child: Text('Sexual\n Health')
+                          child: Text('Sexual\nHealth')
                       ),
 
                     ),

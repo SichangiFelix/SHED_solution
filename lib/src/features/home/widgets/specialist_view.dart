@@ -22,7 +22,7 @@ class _SpecialistViewState extends State<SpecialistView> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
           child: Text(
            widget.title,
             style: const TextStyle(
@@ -30,26 +30,26 @@ class _SpecialistViewState extends State<SpecialistView> {
           ),
         ),
         Container(
-          height: 140,
+          height: 120,
           child: ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
               scrollDirection: Axis.horizontal,
               itemCount: 7,
               itemBuilder: (context, index) {
 
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(22),
-                  child: Container(
-                    width: width *0.6,
-                    margin: EdgeInsets.only(left: 3,right: 5),
-                    padding:EdgeInsets.all(18),
-                    color: Colors.grey,
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      width: width *0.6,
+                      margin: EdgeInsets.only(left: 3,right: 5),
+                      padding:EdgeInsets.all(18),
+                      color: Colors.grey,
 
-                    child: Center(
-                      child: GestureDetector(
-                        onTap: () {
-                         Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
-                        },
+                      child: Center(
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,7 +69,7 @@ class _SpecialistViewState extends State<SpecialistView> {
 
 
                           ],
-                        )
+                        ),
                       ),
                     ),
                   ),

@@ -25,10 +25,10 @@ class _SearchBarState extends State<SearchBar> {
         decoration: BoxDecoration(
 
           border: const Border(
-            left: BorderSide(color: Colors.grey,width: 1,),
-            right: BorderSide(color: Colors.grey,width: 1,),
-            top: BorderSide(color: Colors.grey,width: 1,),
-            bottom: BorderSide(color: Colors.grey,width: 1,),
+            left: BorderSide(color: Colors.grey,width: 2,),
+            right: BorderSide(color: Colors.grey,width: 2,),
+            top: BorderSide(color: Colors.grey,width: 2,),
+            bottom: BorderSide(color: Colors.grey,width: 2,),
           ) ,
             color: Colors.white12,
             borderRadius: BorderRadius.circular(15.0)),
@@ -37,7 +37,7 @@ class _SearchBarState extends State<SearchBar> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _searchButton(),
+           // _searchButton(),
             _searchField(),
           ],
         ),
@@ -56,14 +56,13 @@ class _SearchBarState extends State<SearchBar> {
   Widget _searchField() {
     const _border = InputBorder.none;
     return Container(
-      width: _deviceWidth * 0.5,
+      margin: EdgeInsets.only(left: 5,top: 2),
+      width: _deviceWidth * 0.7,
       height: _deviceHeight * 0.05,
       child: TextField(
         controller: _searchTextFieldController,
         onSubmitted: (_input) {},
-        style: const TextStyle(
-          color: Colors.white,
-        ),
+
         decoration: const InputDecoration(
             focusedBorder: _border,
 

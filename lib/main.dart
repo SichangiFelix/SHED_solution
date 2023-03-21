@@ -6,6 +6,7 @@ import 'package:project/src/features/emergency/screens/emergency_situations_scre
 import 'package:project/src/features/emergency/screens/selected_facility_screen.dart';
 import 'package:project/src/features/emergency/screens/selected_situation_screen.dart';
 import 'package:project/src/features/home/screens/home_screen.dart';
+import 'package:project/src/features/topics/screens/topics_screen.dart';
 import 'firebase_options.dart';
 import 'src/features/landing/splash_page.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
@@ -112,6 +113,8 @@ class MyApp extends StatelessWidget {
         EmergencyFacilitiesScreen.screenRoute : (context) => EmergencyFacilitiesScreen(),
         SelectedFacilityScreen.screenRoute : (context) => SelectedFacilityScreen(),
         SelectedSituationScreen.screenRoute : (context) => SelectedSituationScreen(),
+        //Topics
+        TopicsScreen.screenRoute : (context) => TopicsScreen(),
       },
     );
   }

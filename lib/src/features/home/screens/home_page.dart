@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../../topics/screens/topics_screen.dart';
 import '../widgets/meeting_view.dart';
 import '../widgets/search_bar.dart';
 import '../widgets/specialist_view.dart';
@@ -18,7 +19,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return  CustomScrollView(
      slivers: [
        SliverAppBar(
@@ -81,6 +81,4 @@ class _HomePageState extends State<HomePage> {
      ]
     );
    }
-
-
 }

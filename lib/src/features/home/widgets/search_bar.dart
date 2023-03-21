@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/src/features/topics/screens/topics_screen.dart';
 
 class SearchBar extends StatefulWidget {
   const SearchBar({Key? key}) : super(key: key);
@@ -21,22 +22,27 @@ class _SearchBarState extends State<SearchBar> {
       padding: const EdgeInsets.all(16.0),
       child: Hero(
         tag: "hero_search",
-        child: Container(
-          height: _deviceHeight * 0.05,
-          width: _deviceWidth * 0.8,
-          padding: EdgeInsets.only(left: 20),
-          decoration: BoxDecoration(
-            border: const Border(
-              left: BorderSide(color: Colors.grey,width: 2,),
-              right: BorderSide(color: Colors.grey,width: 2,),
-              top: BorderSide(color: Colors.grey,width: 2,),
-              bottom: BorderSide(color: Colors.grey,width: 2,),
-            ) ,
-              color: Colors.white12,
-              borderRadius: BorderRadius.circular(15.0)),
-          child: Align(
-            alignment: Alignment.centerLeft,
-              child: Text("Search Topics")),
+        child: InkWell(
+          onTap: (){
+            Navigator.pushNamed(context, TopicsScreen.screenRoute);
+          },
+          child: Container(
+            height: _deviceHeight * 0.05,
+            width: _deviceWidth * 0.8,
+            padding: EdgeInsets.only(left: 20),
+            decoration: BoxDecoration(
+              border: const Border(
+                left: BorderSide(color: Colors.grey,width: 2,),
+                right: BorderSide(color: Colors.grey,width: 2,),
+                top: BorderSide(color: Colors.grey,width: 2,),
+                bottom: BorderSide(color: Colors.grey,width: 2,),
+              ) ,
+                color: Colors.white12,
+                borderRadius: BorderRadius.circular(15.0)),
+            child: Align(
+              alignment: Alignment.centerLeft,
+                child: Text("Search Topics")),
+          ),
         ),
       ),
     );

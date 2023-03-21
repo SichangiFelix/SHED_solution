@@ -18,10 +18,24 @@ class _TopicViewState extends State<TopicView> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: Text(
-            widget.title,
-            style: const TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.title,
+                style: const TextStyle(
+                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+              ),InkWell(
+                onTap: (){
+                  Navigator.pushNamed(context, TopicsScreen.screenRoute);
+                },
+                child: Text(
+                  "Explore More",
+                  style: const TextStyle(
+                      color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
           ),
         ),
         Container(

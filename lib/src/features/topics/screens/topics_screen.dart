@@ -22,7 +22,7 @@ class TopicsScreen extends StatelessWidget {
               width: 260,
               height: 270,
               decoration: BoxDecoration(
-                color: Colors.blue.shade100git a,
+                color: Colors.blue.shade100,
                 borderRadius: BorderRadius.only(topLeft: Radius.circular(100),topRight: Radius.circular(200), bottomRight: Radius.circular(80), bottomLeft: Radius.circular(200))
               ),
             ),

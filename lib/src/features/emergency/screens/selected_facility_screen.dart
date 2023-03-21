@@ -1,17 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:project/src/features/data/models/emergency.dart';
 
 class SelectedFacilityScreen extends StatelessWidget {
 
   static const String screenRoute = "/selectedFacility";
 
-  List<String> emergencySituations = [
-    'Injury',
-    'Condom Breakage',
-    'Rape',
-    'Unprotected Contact',
-    'STI infection',
-    '....'
-  ];
+
 
   SelectedFacilityScreen({Key? key}) : super(key: key);
 
@@ -21,10 +15,13 @@ class SelectedFacilityScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
+    final Facility facility = ModalRoute.of(context)!.settings.arguments as Facility;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("KU Health Unit",
+        title:  Text(
+          facility.name,
           style: TextStyle(
             fontSize: 21,
           ),
@@ -52,20 +49,15 @@ class SelectedFacilityScreen extends StatelessWidget {
                           padding: EdgeInsets.symmetric(vertical: screenHeight/100, horizontal: screenWidth/18),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: const [
-                              Text("Testing",
-                                style: TextStyle(
-                                  fontSize: 16,
+                            children: [
+                              for (var service in facility.services)
+                                Text(
+                                  service,
+                                  style: TextStyle(
+                                    fontSize: 16,
+                                  ),
                                 ),
-                              ),
-                              Text("Lorem ipsum dolor sit amet, consectetur adipiscing"
-                                  " elit, sed do eiusmod tempor incididunt ut labore et"
-                                  " dolore magna aliqua.",
-                                style: TextStyle(
-                                  fontSize: 14,
-                                ),
-                              ),
-                            ],
+                            ]
                           ),
                         );
                       }
@@ -81,7 +73,8 @@ class SelectedFacilityScreen extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: screenWidth/18, vertical: 10),
-                  child: const Text("KU University Nairobi County along Thika Super Highway",
+                  child:  Text(
+                    facility.location,
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -114,7 +107,9 @@ class SelectedFacilityScreen extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   ),
                   ),
-                  onPressed: (){}, child: Text("Call",
+                  onPressed: (){
+
+                  }, child: Text("Call",
                     style: TextStyle(
                       fontSize: 16,
                     ),

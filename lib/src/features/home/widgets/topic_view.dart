@@ -1,6 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:project/src/features/topics/screens/topics_screen.dart';
 
 class TopicView extends StatefulWidget {
   String title;
@@ -18,24 +17,10 @@ class _TopicViewState extends State<TopicView> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                widget.title,
-                style: const TextStyle(
-                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
-              ),InkWell(
-                onTap: (){
-                  Navigator.pushNamed(context, TopicsScreen.screenRoute);
-                },
-                child: Text(
-                  "Explore More",
-                  style: const TextStyle(
-                      color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ],
+          child: Text(
+            widget.title,
+            style: const TextStyle(
+                color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
         Container(

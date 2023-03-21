@@ -16,15 +16,15 @@ class _TopicsGridState extends State<TopicsGrid> {
       children: [
 
         Container(
-          margin: EdgeInsets.only(left: 20,right: 20),
+          margin: EdgeInsets.only(left: 40,right: 40),
           height: MediaQuery.of(context).size.height *0.9,
           child: Center(
             child: GridView.builder(
                 gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    childAspectRatio: 1.8,
-                    crossAxisSpacing: 10,
-                    mainAxisSpacing: 10),
+                    maxCrossAxisExtent: 300,
+                    childAspectRatio: 1.2,
+                    crossAxisSpacing: 40,
+                    mainAxisSpacing: 15),
                 itemCount: 17,
                 itemBuilder: (BuildContext ctx, index) {
                   return GestureDetector(

@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:project/src/features/data/models/emergency.dart';
 
 class SelectedSituationScreen extends StatelessWidget {
 
@@ -11,10 +13,13 @@ class SelectedSituationScreen extends StatelessWidget {
     double screenWidth = MediaQuery.of(context).size.width;
     double screenHeight = MediaQuery.of(context).size.height;
 
+    final Emergency emergency = ModalRoute.of(context)!.settings.arguments as Emergency;
+
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text("Injury",
+        title: Text(
+          emergency.name,
           style: TextStyle(
             fontSize: 21,
           ),
@@ -42,9 +47,8 @@ class SelectedSituationScreen extends StatelessWidget {
                   width: 1,
                 )
             ),
-            child: Text("Lorem ipsum dolor sit amet, consectetur adipiscing"
-                " elit, sed do eiusmod tempor incididunt ut labore et"
-                " dolore magna aliqua.",
+            child: Text(
+              emergency.content.trim(),
               style: TextStyle(
                 fontSize: 16,
               ),

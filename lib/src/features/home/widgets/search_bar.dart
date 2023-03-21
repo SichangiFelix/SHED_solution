@@ -71,7 +71,7 @@ class _SearchBarState extends State<SearchBar> {
             ),
             filled: false,
             fillColor: Colors.black,
-            hintText: 'Search'),
+            hintText: 'Search '),
       ),
     );
   }

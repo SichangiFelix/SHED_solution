@@ -43,6 +43,7 @@ dependencies:
   google_sign_in: ^6.0.0
   cached_network_image: ^3.0.0
   cloud_firestore: ^4.4.3
+  flex_color_scheme: ^6.1.2
 
 dev_dependencies:
   flutter_test:

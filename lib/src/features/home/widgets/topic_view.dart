@@ -36,7 +36,7 @@ class _TopicViewState extends State<TopicView> {
                 child: Text(
                   'Explore More>',
                   style: const TextStyle(
-                      color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                      color: Colors.black, fontSize: 13, fontWeight: FontWeight.bold),
                 ),
               ),
             ],

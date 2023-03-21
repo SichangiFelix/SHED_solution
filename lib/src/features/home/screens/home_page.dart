@@ -7,11 +7,18 @@ import '../widgets/specialist_view.dart';
 import '../widgets/topic_view.dart';
 import '../widgets/trending_view.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+
+  @override
   Widget build(BuildContext context) {
+
     return  CustomScrollView(
      slivers: [
        SliverAppBar(
@@ -74,4 +81,6 @@ class HomePage extends StatelessWidget {
      ]
     );
    }
+
+
 }

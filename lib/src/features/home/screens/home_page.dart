@@ -21,74 +21,76 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return  Scaffold(
       drawer: Drawer(),
-      body: CustomScrollView(
-          slivers: [
-            SliverAppBar(
-              automaticallyImplyLeading: false,
-              backgroundColor: Colors.white,
-              pinned: false,
-              expandedHeight: 0,
-              flexibleSpace: FlexibleSpaceBar(
-                background: SafeArea(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                          margin:EdgeInsets.only(left:5,right: 4),
-                          child:Center(
-                              child: Builder(
-                                builder: (context){
-                                  return InkWell(
-                                      onTap: (){
-                                        Scaffold.of(context).openDrawer();
-                                      },
-                                      child: Icon(Icons.menu));
-                                },
-                              ),
-                          )
-                      ),
-                      Container(
-                          margin:EdgeInsets.only(left:3,right: 4),
-                          child:Center(
-                              child:Icon(Icons.notifications)
-                          )
-                      ),
-                    ],
+      body: SafeArea(
+        child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                automaticallyImplyLeading: false,
+                backgroundColor: Colors.white,
+                pinned: false,
+                expandedHeight: 0,
+                flexibleSpace: FlexibleSpaceBar(
+                  background: SafeArea(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Container(
+                            margin:EdgeInsets.only(left:5,right: 4),
+                            child:Center(
+                                child: Builder(
+                                  builder: (context){
+                                    return InkWell(
+                                        onTap: (){
+                                          Scaffold.of(context).openDrawer();
+                                        },
+                                        child: Icon(Icons.menu));
+                                  },
+                                ),
+                            )
+                        ),
+                        Container(
+                            margin:EdgeInsets.only(left:3,right: 4),
+                            child:Center(
+                                child:Icon(Icons.notifications)
+                            )
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),
-            ),
-            const  SliverPadding(
-              padding: EdgeInsets.only(top: 0),
-              sliver: SliverToBoxAdapter(
-                child: SearchBar(),
+              SliverPadding(
+                padding: EdgeInsets.only(top: 0),
+                sliver: SliverToBoxAdapter(
+                  child: SearchBar(),
+                ),
               ),
-            ),
-            SliverPadding(
-              padding:  EdgeInsets.only(top: 0),
-              sliver: SliverToBoxAdapter(
-                  child: TrendingView(title: 'Trending',)
+              SliverPadding(
+                padding:  EdgeInsets.only(top: 0),
+                sliver: SliverToBoxAdapter(
+                    child: TrendingView(title: 'Trending',)
+                ),
               ),
-            ),
-            SliverPadding(
-              padding:  EdgeInsets.only(top: 0),
-              sliver: SliverToBoxAdapter(
-                  child: TopicView(title: 'Health Topics',)
+              SliverPadding(
+                padding:  EdgeInsets.only(top: 0),
+                sliver: SliverToBoxAdapter(
+                    child: TopicView(title: 'Health Topics',)
+                ),
               ),
-            ),
-            SliverPadding(
-              padding:  EdgeInsets.only(top: 0),
-              sliver: SliverToBoxAdapter(
-                  child: SpecialistView(title: 'Specialists',)
+              SliverPadding(
+                padding:  EdgeInsets.only(top: 0),
+                sliver: SliverToBoxAdapter(
+                    child: SpecialistView(title: 'Specialists',)
+                ),
               ),
-            ),
-            SliverPadding(
-              padding:  EdgeInsets.only(top: 0),
-              sliver: SliverToBoxAdapter(
-                  child: MeetingView(title: 'Upcoming Meetings',)
+              SliverPadding(
+                padding:  EdgeInsets.only(top: 0),
+                sliver: SliverToBoxAdapter(
+                    child: MeetingView(title: 'Upcoming Meetings',)
+                ),
               ),
-            ),
-          ]
+            ]
+        ),
       ),
     );
    }

@@ -1,45 +1,57 @@
 import 'package:flutter/material.dart';
 
-class TopicsScreen extends StatelessWidget {
-
+class TopicsScreen extends StatefulWidget {
   static const String screenRoute = "/topics";
 
   const TopicsScreen({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  State<TopicsScreen> createState() => _TopicsScreenState();
+}
 
+class _TopicsScreenState extends State<TopicsScreen> {
+  @override
+  Widget build(BuildContext context) {
     TextEditingController _searchTextFieldController = TextEditingController();
     double screenHeight = MediaQuery.of(context).size.height;
     double screenWidth = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Positioned(
-            left: -screenWidth/12,
+            left: -screenWidth / 12,
             child: Container(
               width: 260,
               height: 270,
               decoration: BoxDecoration(
-                color: Colors.blue.shade100,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(100),topRight: Radius.circular(200), bottomRight: Radius.circular(80), bottomLeft: Radius.circular(200))
-              ),
+                  color: Colors.blue.shade100,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(100),
+                      topRight: Radius.circular(200),
+                      bottomRight: Radius.circular(80),
+                      bottomLeft: Radius.circular(200))),
             ),
-          ),Positioned(
-            top: screenHeight/10,
-            right: -screenWidth/14,
+          ),
+          Positioned(
+            top: screenHeight / 10,
+            right: -screenWidth / 14,
             child: Container(
               width: 231,
               height: 204,
               decoration: BoxDecoration(
-                color: Colors.blue.shade100,
-                borderRadius: BorderRadius.only(topLeft: Radius.circular(200),topRight: Radius.circular(180), bottomRight: Radius.circular(200), bottomLeft: Radius.circular(180))
-              ),
+                  color: Colors.blue.shade100,
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(200),
+                      topRight: Radius.circular(180),
+                      bottomRight: Radius.circular(200),
+                      bottomLeft: Radius.circular(180))),
             ),
-          ),Positioned(
-            top: screenHeight/2.5,
-            right: screenWidth/30,
+          ),
+          Positioned(
+            top: screenHeight / 2.5,
+            right: screenWidth / 30,
             child: Container(
               width: 101,
               height: 109,
@@ -48,9 +60,10 @@ class TopicsScreen extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
               ),
             ),
-          ),Positioned(
-            top: screenHeight/1.6,
-            right: -screenWidth/60,
+          ),
+          Positioned(
+            top: screenHeight / 1.6,
+            right: -screenWidth / 60,
             child: Container(
               width: 60,
               height: 60,
@@ -65,13 +78,14 @@ class TopicsScreen extends StatelessWidget {
               children: [
                 Align(
                     alignment: Alignment.center,
-                    child: Text("Lets learn",
+                    child: Text(
+                      "Lets learn",
                       style: TextStyle(
                         fontSize: 22,
                       ),
                     )),
                 Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.only(top: 16),
                   child: Hero(
                     tag: "hero_search",
                     child: Container(
@@ -80,11 +94,23 @@ class TopicsScreen extends StatelessWidget {
                       padding: EdgeInsets.only(left: 20),
                       decoration: BoxDecoration(
                           border: const Border(
-                            left: BorderSide(color: Colors.grey,width: 2,),
-                            right: BorderSide(color: Colors.grey,width: 2,),
-                            top: BorderSide(color: Colors.grey,width: 2,),
-                            bottom: BorderSide(color: Colors.grey,width: 2,),
-                          ) ,
+                            left: BorderSide(
+                              color: Colors.grey,
+                              width: 2,
+                            ),
+                            right: BorderSide(
+                              color: Colors.grey,
+                              width: 2,
+                            ),
+                            top: BorderSide(
+                              color: Colors.grey,
+                              width: 2,
+                            ),
+                            bottom: BorderSide(
+                              color: Colors.grey,
+                              width: 2,
+                            ),
+                          ),
                           color: Colors.white12,
                           borderRadius: BorderRadius.circular(15.0)),
                       child: Material(
@@ -105,6 +131,40 @@ class TopicsScreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                Spacer(),
+                SizedBox(
+                  width: screenWidth,
+                  height: screenHeight/1.3,
+                  child: GridView.builder(
+                    padding: EdgeInsets.symmetric(horizontal: screenWidth/16),
+                    itemBuilder: (context, index){
+                      return Container(
+                        height: screenHeight/10,
+                        decoration: BoxDecoration(
+                          gradient: RadialGradient(
+                            colors: [
+                              Color(0x60FC67A7).withOpacity(0.7),
+                              Color(0x604E81EB),
+                            ],
+                            radius: 0.55,
+                            stops: [
+                              0.3,
+                              1.0
+                            ],
+                          ),
+                          borderRadius: BorderRadius.circular(20),
+                        ),
+                        child: Center(child: Text("Test text")),
+                      );
+                    },
+                    itemCount: 8,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                    childAspectRatio: 1,
+                    crossAxisSpacing: screenWidth/12,
+                    mainAxisSpacing: screenWidth/32,
+                  ),),
+                )
               ],
             ),
           ),

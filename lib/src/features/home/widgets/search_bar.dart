@@ -17,12 +17,13 @@ class _SearchBarState extends State<SearchBar> {
   Widget build(BuildContext context) {
     _deviceWidth = MediaQuery.of(context).size.width;
     _deviceHeight = MediaQuery.of(context).size.height;
+
     _searchTextFieldController = TextEditingController();
     return  Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: EdgeInsets.symmetric(horizontal: (_deviceWidth - (_deviceWidth*0.8))/2, vertical: 16),
       child: Hero(
         tag: "hero_search",
-        child: InkWell(
+        child: GestureDetector(
           onTap: (){
             Navigator.pushNamed(context, TopicsScreen.screenRoute);
           },

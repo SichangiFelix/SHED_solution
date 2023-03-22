@@ -24,10 +24,25 @@ class _SpecialistViewState extends State<SpecialistView> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-          child: Text(
-           widget.title,
-            style: const TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                widget.title,
+                style: const TextStyle(
+                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+              ),
+              InkWell(
+                onTap: (){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
+                },
+                child: Text(
+                  "Explore More",
+                  style: const TextStyle(
+                      color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                ),
+              ),
+            ],
           ),
         ),
         Container(
@@ -45,7 +60,7 @@ class _SpecialistViewState extends State<SpecialistView> {
 
                      return GestureDetector(
                         onTap: () {
-                          Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
+                          //Navigate to individual specialist screen
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),

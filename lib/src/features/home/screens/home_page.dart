@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
+import '../../../common/statemanager/theme_mode_manager.dart';
 import '../widgets/meeting_view.dart';
 import '../widgets/search_bar.dart';
 import '../widgets/specialist_view.dart';
@@ -15,10 +17,33 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  bool isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
+
     return  Scaffold(
-      drawer: const Drawer(),
+      drawer: SizedBox(
+        height: screenHeight,
+        width: screenwidth/1.6,
+        child: Drawer(
+          child: SafeArea(
+            child: Column(
+              children: [
+                Switch(
+                    value: isDarkMode, onChanged: (newValue){
+                  setState(() {
+                    isDarkMode = newValue;
+                  });
+                 Provider.of<ThemeModeManager>(context, listen: false).changeTheme(isDarkMode: newValue);
+                }),
+              ],
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: CustomScrollView(
             slivers: [

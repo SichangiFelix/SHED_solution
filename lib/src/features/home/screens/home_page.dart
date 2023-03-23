@@ -30,16 +30,32 @@ class _HomePageState extends State<HomePage> {
         width: screenwidth/1.6,
         child: Drawer(
           child: SafeArea(
-            child: Column(
-              children: [
-                Switch(
-                    value: isDarkMode, onChanged: (newValue){
-                  setState(() {
-                    isDarkMode = newValue;
-                  });
-                 Provider.of<ThemeModeManager>(context, listen: false).changeTheme(isDarkMode: newValue);
-                }),
-              ],
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: screenHeight/40, horizontal: screenwidth/40),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Switch app theme",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      Switch(
+                          value: isDarkMode, onChanged: (newValue){
+                        setState(() {
+                          isDarkMode = newValue;
+                        });
+                        Provider.of<ThemeModeManager>(context, listen: false).changeTheme(isDarkMode: newValue);
+                      }),
+                    ],
+                  ),
+                  Divider(thickness: 2,),
+                  TextButton(onPressed: (){}, child: Text("Logout")),
+                  Divider(thickness: 2,),
+                ],
+              ),
             ),
           ),
         ),

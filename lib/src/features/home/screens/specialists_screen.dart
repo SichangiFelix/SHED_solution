@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class SpecialistScreen extends StatefulWidget {
@@ -19,7 +18,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
     return  Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
-        title: Text('Specialists'),
+        title: const Text('Specialists'),
       ),
       body: Container(
         height: height,
@@ -32,7 +31,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
             return Column(
               children: [
                 Container(
-                  margin: EdgeInsets.all(7),
+                  margin: const EdgeInsets.all(7),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
                       color: Colors.green
@@ -42,20 +41,20 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                     onTap: (){
                       showSpecialistInfo(context);
                     },
-                    leading: CircleAvatar(
+                    leading: const CircleAvatar(
                       radius: 27,
                       backgroundImage: NetworkImage(''),
                     ),
                     //  child: Image.network(friend['photoUrl'])),
-                    title: Text('Dr. Samir Sichangi',),
+                    title: const Text('Dr. Samir Sichangi',),
 
                     subtitle: Container(
-                      child: Text(
-                        'Gynaecologist',style: const TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,
+                      child: const Text(
+                        'Gynaecologist',style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,
                       ),),
                   ),
                 ),
-                Divider(thickness: 1,color: Colors.white60,indent: 10,endIndent: 10,)
+                const Divider(thickness: 1,color: Colors.white60,indent: 10,endIndent: 10,)
               ],
             );
     }
@@ -69,7 +68,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
      context: context,
      builder: (BuildContext context) {
        return AlertDialog(
-         contentPadding: EdgeInsets.only(top: 0),
+         contentPadding: const EdgeInsets.only(top: 0),
          backgroundColor: Colors.grey,
          content: Container(
            child: Wrap(
@@ -77,20 +76,20 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
              children: [
                Container(
                   width: width*0.75,
-                 margin: EdgeInsets.only(left: 10,top: 10,bottom: 10),
+                 margin: const EdgeInsets.only(left: 10,top: 10,bottom: 10),
                  height: 80,
                  child:  Row(
                    mainAxisAlignment: MainAxisAlignment.start,
                    crossAxisAlignment: CrossAxisAlignment.start,
                    children: [
-                     CircleAvatar(
+                     const CircleAvatar(
                        radius: 35,
                      ),
-                     SizedBox(width: 10,),
+                     const SizedBox(width: 10,),
                      Column(
                        mainAxisAlignment: MainAxisAlignment.start,
                        crossAxisAlignment: CrossAxisAlignment.start,
-                       children: [
+                       children: const [
                          Text('Dr Samir Sichangi'),
                          SizedBox(height:5),
                          Text('Gynaecologist')
@@ -104,8 +103,8 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
 
                Container(
                  width: width*0.75,
-                 padding: EdgeInsets.symmetric(horizontal: 15),
-                 child: Text(
+                 padding: const EdgeInsets.symmetric(horizontal: 15),
+                 child: const Text(
                    'Gynecologists are medical professionals who specialize in the female reproductive system, including the uterus, ovaries, and vagina. They provide a wide range of healthcare services, including routine check-ups, prenatal care, family planning, and treatment for reproductive disorders.',
                    maxLines: 10,
                    overflow: TextOverflow.ellipsis,
@@ -132,7 +131,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                    child: Container(
                      height: 35,
                      width: width*0.75,
-                     decoration: BoxDecoration(
+                     decoration: const BoxDecoration(
                          color: Colors.white,
                          borderRadius: BorderRadius.all(Radius.circular(5))),
                      child: Row(

@@ -21,7 +21,7 @@ class EmergencyPage extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        title: Text("Emergency",
+        title: const Text("Emergency",
         ),
       ),
       body: ListView.builder(
@@ -46,12 +46,12 @@ class EmergencyPage extends StatelessWidget {
                 ),
                 child: ListTile(
                   title: Text(emergencySections[index],
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  trailing: Icon(Icons.chevron_right, size: 30,),
+                  trailing: const Icon(Icons.chevron_right, size: 30,),
                 ),
               ),
             );

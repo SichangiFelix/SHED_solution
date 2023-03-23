@@ -24,13 +24,13 @@ class OtpField extends StatelessWidget {
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(4),
-            borderSide: BorderSide(
+            borderSide: const BorderSide(
               width: 1,
             )
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(4),
-              borderSide: BorderSide(
+              borderSide: const BorderSide(
                 width: 1,
               )
           ),

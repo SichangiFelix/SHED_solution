@@ -16,7 +16,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(SplashPage(key:UniqueKey(),onInitializationComplete: ()=>runApp(MyApp())));
+  runApp(SplashPage(key:UniqueKey(),onInitializationComplete: ()=>runApp(const MyApp())));
 }
 
 class MyApp extends StatelessWidget {
@@ -105,16 +105,16 @@ class MyApp extends StatelessWidget {
       initialRoute: AuthPage.screenRoute,
       routes: {
         //Auth
-        AuthPage.screenRoute : (context) => AuthPage(),
+        AuthPage.screenRoute : (context) => const AuthPage(),
         //Home
-        HomeScreen.screenRoute : (context) => HomeScreen(),
+        HomeScreen.screenRoute : (context) => const HomeScreen(),
         //Emergency
         EmergencySituationsScreen.screenRoute : (context) => EmergencySituationsScreen(),
         EmergencyFacilitiesScreen.screenRoute : (context) => EmergencyFacilitiesScreen(),
         SelectedFacilityScreen.screenRoute : (context) => SelectedFacilityScreen(),
-        SelectedSituationScreen.screenRoute : (context) => SelectedSituationScreen(),
+        SelectedSituationScreen.screenRoute : (context) => const SelectedSituationScreen(),
         //Topics
-        TopicsScreen.screenRoute : (context) => TopicsScreen(),
+        TopicsScreen.screenRoute : (context) => const TopicsScreen(),
       },
     );
   }

@@ -22,7 +22,7 @@ class SelectedFacilityScreen extends StatelessWidget {
         centerTitle: true,
         title:  Text(
           facility.name,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 21,
           ),
         ),
@@ -53,7 +53,7 @@ class SelectedFacilityScreen extends StatelessWidget {
                               for (var service in facility.services)
                                 Text(
                                   service,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                     fontSize: 16,
                                   ),
                                 ),
@@ -75,7 +75,7 @@ class SelectedFacilityScreen extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: screenWidth/18, vertical: 10),
                   child:  Text(
                     facility.location,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                     ),
                   ),
@@ -85,7 +85,7 @@ class SelectedFacilityScreen extends StatelessWidget {
                   width: screenWidth,
                   height: screenHeight/2,
                   color: Colors.black12,
-                  child: Center(child: Text("Map view")),
+                  child: const Center(child: Text("Map view")),
                 ),
               ],
             ),
@@ -102,14 +102,14 @@ class SelectedFacilityScreen extends StatelessWidget {
                   width: screenWidth/3,
                   child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   ),
                   ),
                   onPressed: (){
 
-                  }, child: Text("Call",
+                  }, child: const Text("Call",
                     style: TextStyle(
                       fontSize: 16,
                     ),
@@ -117,12 +117,12 @@ class SelectedFacilityScreen extends StatelessWidget {
                   width: screenWidth/3,
                   child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                  textStyle: TextStyle(
+                  textStyle: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   ),
                   ),
-                  onPressed: (){}, child: Text("Directions",
+                  onPressed: (){}, child: const Text("Directions",
                     style: TextStyle(
                       fontSize: 16,
                     ),

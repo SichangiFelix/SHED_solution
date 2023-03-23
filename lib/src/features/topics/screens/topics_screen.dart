@@ -27,7 +27,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
               height: 270,
               decoration: BoxDecoration(
                   color: Colors.blue.shade100,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(100),
                       topRight: Radius.circular(200),
                       bottomRight: Radius.circular(80),
@@ -42,7 +42,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
               height: 204,
               decoration: BoxDecoration(
                   color: Colors.blue.shade100,
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(200),
                       topRight: Radius.circular(180),
                       bottomRight: Radius.circular(200),
@@ -76,7 +76,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
           SafeArea(
             child: Column(
               children: [
-                Align(
+                const Align(
                     alignment: Alignment.center,
                     child: Text(
                       "Lets learn",
@@ -91,7 +91,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
                     child: Container(
                       height: screenHeight * 0.05,
                       width: screenWidth * 0.8,
-                      padding: EdgeInsets.only(left: 20),
+                      padding: const EdgeInsets.only(left: 20),
                       decoration: BoxDecoration(
                           border: const Border(
                             left: BorderSide(
@@ -131,7 +131,7 @@ class _TopicsScreenState extends State<TopicsScreen> {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 SizedBox(
                   width: screenWidth,
                   height: screenHeight/1.3,
@@ -143,18 +143,18 @@ class _TopicsScreenState extends State<TopicsScreen> {
                         decoration: BoxDecoration(
                           gradient: RadialGradient(
                             colors: [
-                              Color(0x60FC67A7).withOpacity(0.7),
-                              Color(0x604E81EB),
+                              const Color(0x60FC67A7).withOpacity(0.7),
+                              const Color(0x604E81EB),
                             ],
                             radius: 0.55,
-                            stops: [
+                            stops: const [
                               0.3,
                               1.0
                             ],
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        child: Center(child: Text("Test text")),
+                        child: const Center(child: Text("Test text")),
                       );
                     },
                     itemCount: 8,

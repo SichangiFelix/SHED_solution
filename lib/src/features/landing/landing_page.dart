@@ -47,7 +47,7 @@ class LandingPage extends StatelessWidget {
                                   fontWeight: FontWeight.w500),
                             )),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 20,
                       ),
                       SizedBox(

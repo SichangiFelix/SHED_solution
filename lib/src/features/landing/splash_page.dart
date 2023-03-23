@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -29,7 +28,7 @@ class _SplashPageState extends State<SplashPage> {
           child: Stack(
             children: [
               Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   gradient: RadialGradient(
                      radius: 1.3,
                       stops: [
@@ -44,7 +43,7 @@ class _SplashPageState extends State<SplashPage> {
                       ]),
                 ),
               ),
-              Align(
+              const Align(
                   alignment: Alignment.center,
                   child: Text("SHED",
                     style: TextStyle(
@@ -55,7 +54,7 @@ class _SplashPageState extends State<SplashPage> {
                   )),
               Align(
                 alignment: Alignment.center,
-                child: SvgPicture.asset("assets/images/Ellipse.svg", height: 90, color: Color(0xff1C1C98),),
+                child: SvgPicture.asset("assets/images/Ellipse.svg", height: 90, color: const Color(0xff1C1C98),),
               ),
             ],
           ),

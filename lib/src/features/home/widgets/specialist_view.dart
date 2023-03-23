@@ -1,5 +1,4 @@
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:project/src/features/data/services/specialist_services.dart';
 
@@ -38,11 +37,11 @@ class _SpecialistViewState extends State<SpecialistView> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SpecialistScreen()));
                 },
-                child: Text(
+                child: const Text(
                   "See All",
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -77,8 +76,8 @@ class _SpecialistViewState extends State<SpecialistView> {
                           borderRadius: BorderRadius.circular(20),
                           child: Container(
                             width: width *0.6,
-                            margin: EdgeInsets.only(left: 3,right: 5),
-                            padding:EdgeInsets.all(18),
+                            margin: const EdgeInsets.only(left: 3,right: 5),
+                            padding:const EdgeInsets.all(18),
                             color: Colors.grey,
 
                             child: Center(
@@ -86,7 +85,7 @@ class _SpecialistViewState extends State<SpecialistView> {
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  CircleAvatar(
+                                  const CircleAvatar(
                                     radius: 30,
                                   ),
                                   Column(
@@ -94,7 +93,7 @@ class _SpecialistViewState extends State<SpecialistView> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Text(specialists[index].data()['name']),
-                                      SizedBox(height:5),
+                                      const SizedBox(height:5),
                                       Text(specialists[index].data()['specialty']),
                                     ],
                                   ),
@@ -126,7 +125,7 @@ class _SpecialistViewState extends State<SpecialistView> {
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
-          contentPadding: EdgeInsets.only(top: 0),
+          contentPadding: const EdgeInsets.only(top: 0),
           backgroundColor: Colors.grey,
           content: Container(
             child: Wrap(
@@ -134,22 +133,22 @@ class _SpecialistViewState extends State<SpecialistView> {
               children: [
                 Container(
                   width: width*0.75,
-                  margin: EdgeInsets.only(left: 10,top: 10,bottom: 10),
+                  margin: const EdgeInsets.only(left: 10,top: 10,bottom: 10),
                   height: 80,
                   child:  Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CircleAvatar(
+                      const CircleAvatar(
                         radius: 35,
                       ),
-                      SizedBox(width: 10,),
+                      const SizedBox(width: 10,),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(name),
-                          SizedBox(height:5),
+                          const SizedBox(height:5),
                           Text(specialty)
                         ],
                       ),
@@ -161,11 +160,11 @@ class _SpecialistViewState extends State<SpecialistView> {
 
                 Container(
                   width: width*0.75,
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Text(description
                     , maxLines: 10,
                     overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Colors.white,
                       fontSize: 14,
                     ),
@@ -188,7 +187,7 @@ class _SpecialistViewState extends State<SpecialistView> {
                     child: Container(
                       height: 35,
                       width: width*0.75,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
                       child: Row(

@@ -20,12 +20,12 @@ class GoogleSigninButton extends StatelessWidget {
         width: screenWidth/1.15,
         child: OutlinedButton(
             style: OutlinedButton.styleFrom(
-                textStyle: TextStyle(
+                textStyle: const TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w400,
                 ),
                 alignment: Alignment.centerRight,
-                side: BorderSide(
+                side: const BorderSide(
                   width: 1,
                 )
             ),
@@ -33,7 +33,7 @@ class GoogleSigninButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               Icon(Icons.g_mobiledata, color: Colors.green, size: 40,),
+               const Icon(Icons.g_mobiledata, color: Colors.green, size: 40,),
                 const SizedBox(
                   width: 10,
                 ),

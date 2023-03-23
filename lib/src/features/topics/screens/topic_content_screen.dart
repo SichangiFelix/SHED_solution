@@ -42,8 +42,8 @@ class _TopicContentState extends State<TopicContent> {
                         ],
                       )
                   ),
-                  child: Text('Loreum Ipsum',
-                    style: const TextStyle(
+                  child: const Text('Loreum Ipsum',
+                    style: TextStyle(
                       color: Colors.white70,
                       fontSize: 30,
                     ),
@@ -58,31 +58,31 @@ class _TopicContentState extends State<TopicContent> {
                 scrollDirection: Axis.vertical,
                 children: [
                   Container(
-                    margin:EdgeInsets.only(left: 10,bottom: 5),
+                    margin:const EdgeInsets.only(left: 10,bottom: 5),
                      // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                      child: Text('Sub Title1',
-                        style: const TextStyle(
+                      child: const Text('Sub Title1',
+                        style: TextStyle(
                           fontSize: 18,
                         ),
                       )),
                   Container(
-                      margin:EdgeInsets.only(left: 10,right:10,bottom: 10),
+                      margin:const EdgeInsets.only(left: 10,right:10,bottom: 10),
                     // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                      child: Text('Contraceptives are an effective way to prevent unwanted pregnancies and sexually transmitted infections. They come in various forms, including pills, patches, condoms, and intrauterine devices (IUDs). Some contraceptives work by preventing ovulation, while others create a barrier that prevents sperm from reaching the egg.The use of contraceptives has numerous benefits, including greater control over reproductive health, the ability to plan pregnancies, and a reduction in the spread of sexually transmitted infections. However, it\'s important to note that contraceptives do not provide 100% protection against pregnancy or sexually transmitted infections.',
+                      child: const Text('Contraceptives are an effective way to prevent unwanted pregnancies and sexually transmitted infections. They come in various forms, including pills, patches, condoms, and intrauterine devices (IUDs). Some contraceptives work by preventing ovulation, while others create a barrier that prevents sperm from reaching the egg.The use of contraceptives has numerous benefits, including greater control over reproductive health, the ability to plan pregnancies, and a reduction in the spread of sexually transmitted infections. However, it\'s important to note that contraceptives do not provide 100% protection against pregnancy or sexually transmitted infections.',
 
                       )),
                   Container(
-                      margin:EdgeInsets.only(left: 10,bottom: 5),
+                      margin:const EdgeInsets.only(left: 10,bottom: 5),
                       // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                      child: Text('Sub Title1',
-                        style: const TextStyle(
+                      child: const Text('Sub Title1',
+                        style: TextStyle(
                           fontSize: 18,
                         ),
                       )),
                   Container(
-                      margin:EdgeInsets.only(left: 10,right:10,bottom: 10),
+                      margin:const EdgeInsets.only(left: 10,right:10,bottom: 10),
                       // padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                      child: Text('Contraceptives are an effective way to prevent unwanted pregnancies and sexually transmitted infections. They come in various forms, including pills, patches, condoms, and intrauterine devices (IUDs). Some contraceptives work by preventing ovulation, while others create a barrier that prevents sperm from reaching the egg.The use of contraceptives has numerous benefits, including greater control over reproductive health, the ability to plan pregnancies, and a reduction in the spread of sexually transmitted infections. However, it\'s important to note that contraceptives do not provide 100% protection against pregnancy or sexually transmitted infections.',
+                      child: const Text('Contraceptives are an effective way to prevent unwanted pregnancies and sexually transmitted infections. They come in various forms, including pills, patches, condoms, and intrauterine devices (IUDs). Some contraceptives work by preventing ovulation, while others create a barrier that prevents sperm from reaching the egg.The use of contraceptives has numerous benefits, including greater control over reproductive health, the ability to plan pregnancies, and a reduction in the spread of sexually transmitted infections. However, it\'s important to note that contraceptives do not provide 100% protection against pregnancy or sexually transmitted infections.',
 
                       )),
 

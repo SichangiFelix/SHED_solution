@@ -1,7 +1,5 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../topics/screens/topics_screen.dart';
 import '../widgets/meeting_view.dart';
 import '../widgets/search_bar.dart';
 import '../widgets/specialist_view.dart';
@@ -20,7 +18,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
-      drawer: Drawer(),
+      drawer: const Drawer(),
       body: SafeArea(
         child: CustomScrollView(
             slivers: [
@@ -35,7 +33,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                            margin:EdgeInsets.only(left:5,right: 4),
+                            margin:const EdgeInsets.only(left:5,right: 4),
                             child:Center(
                                 child: Builder(
                                   builder: (context){
@@ -43,14 +41,14 @@ class _HomePageState extends State<HomePage> {
                                         onTap: (){
                                           Scaffold.of(context).openDrawer();
                                         },
-                                        child: Icon(Icons.menu));
+                                        child: const Icon(Icons.menu));
                                   },
                                 ),
                             )
                         ),
                         Container(
-                            margin:EdgeInsets.only(left:3,right: 4),
-                            child:Center(
+                            margin:const EdgeInsets.only(left:3,right: 4),
+                            child:const Center(
                                 child:Icon(Icons.notifications)
                             )
                         ),
@@ -59,32 +57,32 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SliverPadding(
+              const SliverPadding(
                 padding: EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                   child: SearchBar(),
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: TrendingView(title: 'Trending',)
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: TopicView(title: 'Health Topics',)
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: SpecialistView(title: 'Specialists',)
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: MeetingView(title: 'Upcoming Meetings',)
                 ),

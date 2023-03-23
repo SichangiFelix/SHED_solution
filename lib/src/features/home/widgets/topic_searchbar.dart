@@ -40,7 +40,7 @@ class _TopicSearchBarState extends State<TopicSearchBar> {
   Widget _searchField() {
     const _border = InputBorder.none;
     return Container(
-      margin: EdgeInsets.only(left: 5,top: 2),
+      margin: const EdgeInsets.only(left: 5,top: 2),
       width: _deviceWidth * 0.5,
       height: _deviceHeight * 0.05,
       child: TextField(

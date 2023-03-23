@@ -32,9 +32,9 @@ class _TopicViewState extends State<TopicView> {
                 onTap: (){
                   Navigator.pushNamed(context, TopicsScreen.screenRoute);
                 },
-                child: Text(
+                child: const Text(
                   "Explore More",
-                  style: const TextStyle(
+                  style: TextStyle(
                       color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -42,7 +42,7 @@ class _TopicViewState extends State<TopicView> {
           ),
         ),
         Container(
-          margin: EdgeInsets.only(left: 20,right: 20),
+          margin: const EdgeInsets.only(left: 20,right: 20),
           height: MediaQuery.of(context).size.height *0.3,
           child: Center(
             child: GridView(
@@ -59,7 +59,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         //color: Color(0xff06B782),
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           colors: [
                             Color(0xff13DEA0),
                             Color(0xff06B782),
@@ -69,12 +69,12 @@ class _TopicViewState extends State<TopicView> {
                         ),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve1.png"),
                       ),
-                    ),Align(
+                    ),const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve 2.png"),
@@ -84,7 +84,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text('Sexual\nHealth')
                       ),
                     ),
@@ -96,7 +96,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         //color: Color(0xff06B782),
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           colors: [
                             Color(0xffFC67A7),
                             Color(0xffF6815B),
@@ -106,12 +106,12 @@ class _TopicViewState extends State<TopicView> {
                         ),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve1.png"),
                       ),
-                    ),Align(
+                    ),const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve 2.png"),
@@ -121,7 +121,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text('Sexual\nHealth')
                       ),
                     ),
@@ -133,7 +133,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         //color: Color(0xff06B782),
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           colors: [
                             Color(0xff441DFC),
                             Color(0xff4E81EB),
@@ -143,12 +143,12 @@ class _TopicViewState extends State<TopicView> {
                         ),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve1.png"),
                       ),
-                    ),Align(
+                    ),const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve 2.png"),
@@ -158,7 +158,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text('Sexual\nHealth')
                       ),
                     ),
@@ -170,7 +170,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         //color: Color(0xff06B782),
-                        gradient: LinearGradient(
+                        gradient: const LinearGradient(
                           colors: [
                             Color(0xffFFD541),
                             Color(0xffF0B31A),
@@ -180,12 +180,12 @@ class _TopicViewState extends State<TopicView> {
                         ),
                       ),
                     ),
-                    Align(
+                    const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve1.png"),
                       ),
-                    ),Align(
+                    ),const Align(
                       alignment: Alignment.bottomCenter,
                       child: Image(
                         image: AssetImage("assets/images/curve 2.png"),
@@ -195,7 +195,7 @@ class _TopicViewState extends State<TopicView> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Center(
+                      child: const Center(
                           child: Text('Sexual\nHealth')
                       ),
                     ),

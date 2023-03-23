@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:project/src/common/statemanager/theme_mode_manager.dart';
 import 'package:project/src/features/authentication/authservices/auth_page.dart';
 import 'package:project/src/features/emergency/screens/emergency_facilities_screen.dart';
 import 'package:project/src/features/emergency/screens/emergency_situations_screen.dart';
@@ -10,13 +11,21 @@ import 'package:project/src/features/topics/screens/topics_screen.dart';
 import 'firebase_options.dart';
 import 'src/features/landing/splash_page.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(SplashPage(key:UniqueKey(),onInitializationComplete: ()=>runApp(MyApp())));
+  runApp(SplashPage(key:UniqueKey(),onInitializationComplete: ()=>runApp(MultiProvider(
+      providers: [
+        ChangeNotifierProvider<ThemeModeManager>(
+          create: (context) => ThemeModeManager(),
+        ),
+      ],
+      child: const MyApp()
+  ))));
 }
 
 class MyApp extends StatelessWidget {
@@ -65,7 +74,7 @@ class MyApp extends StatelessWidget {
         visualDensity: FlexColorScheme.comfortablePlatformDensity,
         fontFamily: "Poppins",
       ),
-      themeMode: ThemeMode.system,
+      themeMode: context.watch<ThemeModeManager>().selectedTheme,
       darkTheme: FlexThemeData.dark(
         colors: const FlexSchemeColor(
           primary: Color(0xff9fc9ff),
@@ -105,16 +114,16 @@ class MyApp extends StatelessWidget {
       initialRoute: AuthPage.screenRoute,
       routes: {
         //Auth
-        AuthPage.screenRoute : (context) => AuthPage(),
+        AuthPage.screenRoute : (context) => const AuthPage(),
         //Home
-        HomeScreen.screenRoute : (context) => HomeScreen(),
+        HomeScreen.screenRoute : (context) => const HomeScreen(),
         //Emergency
         EmergencySituationsScreen.screenRoute : (context) => EmergencySituationsScreen(),
         EmergencyFacilitiesScreen.screenRoute : (context) => EmergencyFacilitiesScreen(),
         SelectedFacilityScreen.screenRoute : (context) => SelectedFacilityScreen(),
-        SelectedSituationScreen.screenRoute : (context) => SelectedSituationScreen(),
+        SelectedSituationScreen.screenRoute : (context) => const SelectedSituationScreen(),
         //Topics
-        TopicsScreen.screenRoute : (context) => TopicsScreen(),
+        TopicsScreen.screenRoute : (context) => const TopicsScreen(),
       },
     );
   }

@@ -10,7 +10,7 @@ class ShortsPage extends StatefulWidget {
 class _ShortsPageState extends State<ShortsPage> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
       child: Text("shorts vids section"),
     );
   }

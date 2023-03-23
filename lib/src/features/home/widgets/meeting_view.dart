@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class MeetingView extends StatefulWidget {
@@ -36,7 +35,7 @@ class _MeetingViewState extends State<MeetingView> {
                   borderRadius: BorderRadius.circular(22),
                   child: Container(
                     width: width *0.6,
-                    margin: EdgeInsets.only(left: 3,right: 5),
+                    margin: const EdgeInsets.only(left: 3,right: 5),
                     color: Colors.grey,
                     padding:
                     const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
@@ -45,11 +44,11 @@ class _MeetingViewState extends State<MeetingView> {
                        // Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
                       },
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          children: const [
                             Text('Sexual Health Talk'),
                             Text('Dr Samir Mohammed'),
                             SizedBox(height: 30),

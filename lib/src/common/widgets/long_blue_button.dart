@@ -20,7 +20,7 @@ class LongBlueButton extends StatelessWidget {
         width: screenWidth/1.15,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w400,
           ),

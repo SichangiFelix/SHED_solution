@@ -46,8 +46,8 @@ class ForgotPasswordPage extends StatelessWidget {
               final status = await ResetPasswordService().resetPassword(controller.text);
               if(status == AuthStatus.successful){
                 ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text("Password reset link sent to your email, sign in with new password")));
-                Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPage()));
+                    const SnackBar(content: Text("Password reset link sent to your email, sign in with new password")));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
               } else {
                 final errorMsg = AuthExceptionHandler.generateErrorMessage(status);
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(errorMsg)));

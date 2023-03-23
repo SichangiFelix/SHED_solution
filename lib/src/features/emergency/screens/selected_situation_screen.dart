@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:project/src/features/data/models/emergency.dart';
 
@@ -20,7 +19,7 @@ class SelectedSituationScreen extends StatelessWidget {
         centerTitle: true,
         title: Text(
           emergency.name,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 21,
           ),
         ),
@@ -49,7 +48,7 @@ class SelectedSituationScreen extends StatelessWidget {
             ),
             child: Text(
               emergency.content.trim(),
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
               ),
             ),
@@ -58,7 +57,7 @@ class SelectedSituationScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: screenWidth/18, vertical: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+              children: const [
                 Text("Find a facility",
                   style: TextStyle(
                     fontSize: 18,
@@ -99,7 +98,7 @@ class SelectedSituationScreen extends StatelessWidget {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
+                            children: const [
                               Text('Kasarani Hosp',
                                 style: TextStyle(
                                   fontSize: 18,
@@ -131,9 +130,9 @@ class SelectedSituationScreen extends StatelessWidget {
                           Column(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Icon(Icons.not_listed_location, size: 30,),
-                              const Icon(Icons.phone, size: 30,),
+                            children: const [
+                              Icon(Icons.not_listed_location, size: 30,),
+                              Icon(Icons.phone, size: 30,),
                             ],
                           ),
                         ],

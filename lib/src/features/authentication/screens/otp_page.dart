@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:project/src/common/widgets/auth_input_field.dart';
 import 'package:project/src/common/widgets/long_blue_button.dart';
 
 import '../common/otp_field.dart';

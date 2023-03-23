@@ -1,4 +1,3 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class TrendingView extends StatefulWidget {
@@ -34,7 +33,7 @@ class _TrendingViewState extends State<TrendingView> {
                 return ClipRRect(
                   borderRadius: BorderRadius.circular(35),
                   child: Container(
-                    margin: EdgeInsets.only(left: 3,right: 5),
+                    margin: const EdgeInsets.only(left: 3,right: 5),
                    // color: Colors.grey,
                     padding:
                     const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
@@ -44,17 +43,17 @@ class _TrendingViewState extends State<TrendingView> {
                       },
                       child:Container(
                         width: 120,
-                        child: Center(
-                          child: Text('#Gender'),
-                        ),
                         decoration:  BoxDecoration(
-                          border:  Border(
+                          border:  const Border(
                             left: BorderSide(color: Colors.grey,width: 1,),
                             right: BorderSide(color: Colors.grey,width: 1,),
                             top: BorderSide(color: Colors.grey,width: 1,),
                             bottom: BorderSide(color: Colors.grey,width: 1,),
                           ) ,
                           borderRadius: BorderRadius.circular(35),
+                        ),
+                        child: const Center(
+                          child: Text('#Gender'),
                         ),
                       )
                     ),

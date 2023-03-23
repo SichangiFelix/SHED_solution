@@ -1,7 +1,7 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import '../../topics/screens/topics_screen.dart';
+import '../../../common/statemanager/theme_mode_manager.dart';
 import '../widgets/meeting_view.dart';
 import '../widgets/search_bar.dart';
 import '../widgets/specialist_view.dart';
@@ -17,10 +17,49 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
+  bool isDarkMode = false;
+
   @override
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double screenwidth = MediaQuery.of(context).size.width;
+
     return  Scaffold(
-      drawer: Drawer(),
+      drawer: SizedBox(
+        height: screenHeight,
+        width: screenwidth/1.6,
+        child: Drawer(
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: screenHeight/40, horizontal: screenwidth/40),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("Switch app theme",
+                        style: TextStyle(
+                          fontSize: 16,
+                        ),
+                      ),
+                      Switch(
+                          value: isDarkMode, onChanged: (newValue){
+                        setState(() {
+                          isDarkMode = newValue;
+                        });
+                        Provider.of<ThemeModeManager>(context, listen: false).changeTheme(isDarkMode: newValue);
+                      }),
+                    ],
+                  ),
+                  Divider(thickness: 2,),
+                  TextButton(onPressed: (){}, child: Text("Logout")),
+                  Divider(thickness: 2,),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
       body: SafeArea(
         child: CustomScrollView(
             slivers: [
@@ -35,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
-                            margin:EdgeInsets.only(left:5,right: 4),
+                            margin:const EdgeInsets.only(left:5,right: 4),
                             child:Center(
                                 child: Builder(
                                   builder: (context){
@@ -43,14 +82,14 @@ class _HomePageState extends State<HomePage> {
                                         onTap: (){
                                           Scaffold.of(context).openDrawer();
                                         },
-                                        child: Icon(Icons.menu));
+                                        child: const Icon(Icons.menu));
                                   },
                                 ),
                             )
                         ),
                         Container(
-                            margin:EdgeInsets.only(left:3,right: 4),
-                            child:Center(
+                            margin:const EdgeInsets.only(left:3,right: 4),
+                            child:const Center(
                                 child:Icon(Icons.notifications)
                             )
                         ),
@@ -59,32 +98,32 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SliverPadding(
+              const SliverPadding(
                 padding: EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                   child: SearchBar(),
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: TrendingView(title: 'Trending',)
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: TopicView(title: 'Health Topics',)
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: SpecialistView(title: 'Specialists',)
                 ),
               ),
               SliverPadding(
-                padding:  EdgeInsets.only(top: 0),
+                padding:  const EdgeInsets.only(top: 0),
                 sliver: SliverToBoxAdapter(
                     child: MeetingView(title: 'Upcoming Meetings',)
                 ),

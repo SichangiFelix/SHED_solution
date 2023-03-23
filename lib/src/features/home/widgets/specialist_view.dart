@@ -1,3 +1,4 @@
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:project/src/features/data/services/specialist_services.dart';
@@ -5,6 +6,7 @@ import 'package:project/src/features/data/services/specialist_services.dart';
 import '../screens/specialists_screen.dart';
 
 class SpecialistView extends StatefulWidget {
+
   String title;
    SpecialistView({required this.title});
 
@@ -13,12 +15,14 @@ class SpecialistView extends StatefulWidget {
 }
 
 class _SpecialistViewState extends State<SpecialistView> {
+  late var width;
+  late var height;
 
   @override
 
 
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
+     width = MediaQuery.of(context).size.width;
     return  Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -37,17 +41,18 @@ class _SpecialistViewState extends State<SpecialistView> {
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
                 },
                 child: Text(
-                  "Explore More",
+                  "See All",
                   style: const TextStyle(
                       color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
+
             ],
           ),
         ),
         Container(
           height: 120,
-          child: StreamBuilder<QuerySnapshot>(
+          child: StreamBuilder(
             stream: SpecialistServices().getSpecialists(),
             builder: (context, snapshot) {
               if (snapshot.hasData){
@@ -58,9 +63,15 @@ class _SpecialistViewState extends State<SpecialistView> {
                     itemCount: specialists.length,
                     itemBuilder: (context, index) {
 
-                     return GestureDetector(
+                     return InkWell(
                         onTap: () {
-                          //Navigate to individual specialist screen
+                          //Show specialist info via modal that gives option to navigate to chat screen
+                          showSpecialistInfo(
+                               specialty: specialists[index].data()["name"],
+                               name: specialists[index].data()["specialty"],
+                               description: specialists[index].data()["description"],
+                              context: context
+                          );
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(20),
@@ -109,4 +120,109 @@ class _SpecialistViewState extends State<SpecialistView> {
       ],
     );
   }
+  showSpecialistInfo({required BuildContext context,required String specialty,required String name,required String description} ) {
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          contentPadding: EdgeInsets.only(top: 0),
+          backgroundColor: Colors.grey,
+          content: Container(
+            child: Wrap(
+              alignment: WrapAlignment.start,
+              children: [
+                Container(
+                  width: width*0.75,
+                  margin: EdgeInsets.only(left: 10,top: 10,bottom: 10),
+                  height: 80,
+                  child:  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                      ),
+                      SizedBox(width: 10,),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(name),
+                          SizedBox(height:5),
+                          Text(specialty)
+                        ],
+                      ),
+
+
+                    ],
+                  ),
+                ),
+
+                Container(
+                  width: width*0.75,
+                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  child: Text(description
+                    , maxLines: 10,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          actions: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                GestureDetector(
+                  onTap: () {
+
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: Container(
+                      height: 35,
+                      width: width*0.75,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.all(Radius.circular(5))),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          SizedBox(
+                            width: 1,
+                          ),
+                          Icon(
+                            Icons.chat_bubble,
+                            color: Colors.black,
+                            size: 24,
+                          ),
+                          Text(
+                            'Chat',
+                            style: TextStyle(color: Colors.black, fontSize: 15),
+                          ),
+                          SizedBox(
+                            width: 1,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+
+              ],
+            )
+          ],
+        );
+      },
+    );
+  }
+
 }
+
+

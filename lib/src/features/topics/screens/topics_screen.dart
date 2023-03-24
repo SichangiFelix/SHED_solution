@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project/src/features/data/services/articles_services.dart';
 
 class TopicsScreen extends StatefulWidget {
   static const String screenRoute = "/topics";
@@ -126,6 +127,9 @@ class _TopicsScreenState extends State<TopicsScreen> {
                               filled: false,
                               fillColor: Colors.black,
                               hintText: 'Search Topics'),
+                          onSubmitted: (value) {
+
+                          },
                         ),
                       ),
                     ),
@@ -135,35 +139,46 @@ class _TopicsScreenState extends State<TopicsScreen> {
                 SizedBox(
                   width: screenWidth,
                   height: screenHeight/1.3,
-                  child: GridView.builder(
-                    padding: EdgeInsets.symmetric(horizontal: screenWidth/16),
-                    itemBuilder: (context, index){
-                      return Container(
-                        height: screenHeight/10,
-                        decoration: BoxDecoration(
-                          gradient: RadialGradient(
-                            colors: [
-                              const Color(0x60FC67A7).withOpacity(0.7),
-                              const Color(0x604E81EB),
-                            ],
-                            radius: 0.55,
-                            stops: const [
-                              0.3,
-                              1.0
-                            ],
+                  child: StreamBuilder(
+                    stream: ArticlesServices().getArticles(),
+                    builder: (context, snapshot){
+                      if(snapshot.hasData){
+                        List articles = snapshot.data!.docs;
+                       return GridView.builder(
+                          padding: EdgeInsets.symmetric(horizontal: screenWidth/16),
+                          itemBuilder: (context, index){
+                            return Container(
+                              height: screenHeight/10,
+                              decoration: BoxDecoration(
+                                gradient: RadialGradient(
+                                  colors: [
+                                    const Color(0x60FC67A7).withOpacity(0.7),
+                                    const Color(0x604E81EB),
+                                  ],
+                                  radius: 0.55,
+                                  stops: const [
+                                    0.3,
+                                    1.0
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Center(child: Text(articles[index].data()['title'])),
+                            );
+                          },
+                          itemCount: articles.length,
+                          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            childAspectRatio: 1,
+                            crossAxisSpacing: screenWidth/12,
+                            mainAxisSpacing: screenWidth/32,
                           ),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Center(child: Text("Test text")),
-                      );
-                    },
-                    itemCount: 8,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    childAspectRatio: 1,
-                    crossAxisSpacing: screenWidth/12,
-                    mainAxisSpacing: screenWidth/32,
-                  ),),
+                       );
+                      } else{
+                        return const Center(child: CircularProgressIndicator());
+                      }
+                    }
+                  )
                 )
               ],
             ),

@@ -49,7 +49,7 @@ class _SpecialistViewState extends State<SpecialistView> {
             ],
           ),
         ),
-        Container(
+        SizedBox(
           height: 120,
           child: StreamBuilder(
             stream: SpecialistServices().getSpecialists(),

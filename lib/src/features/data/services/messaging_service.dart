@@ -9,7 +9,7 @@ class MessagingService{
     final data = {
       'name': _auth.currentUser!.displayName ?? _auth.currentUser!.email,
       'email': _auth.currentUser!.email,
-      'date': DateTime.now().toString(),
+      'date': DateTime.now(),
     };
 
     try {

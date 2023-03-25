@@ -53,6 +53,7 @@ class EmergencyFacilitiesScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 1,
+                              color: Theme.of(context).primaryColor,
                             )
                         ),
                         child: Row(
@@ -85,9 +86,9 @@ class EmergencyFacilitiesScreen extends StatelessWidget {
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Icon(Icons.not_listed_location, size: 30,),
-                                Icon(Icons.phone, size: 30,),
+                              children: [
+                                Icon(Icons.not_listed_location, size: 30,color: Theme.of(context).primaryColor,),
+                                Icon(Icons.phone, size: 30, color: Theme.of(context).primaryColor,),
                               ],
                             ),
                           ],

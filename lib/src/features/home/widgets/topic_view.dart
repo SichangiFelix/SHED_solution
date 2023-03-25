@@ -27,7 +27,7 @@ class _TopicViewState extends State<TopicView> {
               Text(
                 widget.title,
                 style: const TextStyle(
-                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                     fontSize: 16, fontWeight: FontWeight.bold),
               ),InkWell(
                 onTap: (){
                   Navigator.pushNamed(context, TopicsScreen.screenRoute);
@@ -35,7 +35,7 @@ class _TopicViewState extends State<TopicView> {
                 child: const Text(
                   "Explore More",
                   style: TextStyle(
-                      color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
             ],

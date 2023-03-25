@@ -19,7 +19,7 @@ class _TrendingViewState extends State<TrendingView> {
           child: Text(
             widget.title,
             style: const TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
         Container(

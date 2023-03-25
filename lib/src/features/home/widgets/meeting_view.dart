@@ -20,7 +20,7 @@ class _MeetingViewState extends State<MeetingView> {
           child: Text(
             widget.title,
             style: const TextStyle(
-                color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                fontSize: 16, fontWeight: FontWeight.bold),
           ),
         ),
         Container(
@@ -31,31 +31,23 @@ class _MeetingViewState extends State<MeetingView> {
               itemCount: 7,
               itemBuilder: (context, index) {
 
-                return ClipRRect(
-                  borderRadius: BorderRadius.circular(22),
-                  child: Container(
-                    width: width *0.6,
-                    margin: const EdgeInsets.only(left: 3,right: 5),
-                    color: Colors.grey,
-                    padding:
-                    const EdgeInsets.symmetric(vertical: 0, horizontal: 8),
-                    child: GestureDetector(
-                      onTap: () {
-                       // Navigator.push(context, MaterialPageRoute(builder: (context)=>SpecialistScreen()));
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.all(15),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: const [
-                            Text('Sexual Health Talk'),
-                            Text('Dr Samir Mohammed'),
-                            SizedBox(height: 30),
-                            Text('12th Feb 2023')
-                          ],
-                        ),
-                      )
+                return SizedBox(
+                  width: width *0.6,
+                  child: Card(
+                    elevation: 5,
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    child: Container(
+                      padding: const EdgeInsets.all(15),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text('Sexual Health Talk'),
+                          Text('Dr Samir Mohammed'),
+                          SizedBox(height: 30),
+                          Text('12th Feb 2023')
+                        ],
+                      ),
                     ),
                   ),
                 );

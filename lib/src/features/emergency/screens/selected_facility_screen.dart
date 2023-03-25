@@ -90,7 +90,6 @@ class SelectedFacilityScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: screenHeight/12,
-              color: Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

@@ -68,14 +68,18 @@ class EmergencyFacilitiesScreen extends StatelessWidget {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ) ,
-
-                                for (var i = 0; i < facilities[index].data()['services'].length; i++)
-                                  Text(facilities[index].data()['services'][i],
-                                    style: const TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    for (var i = 0; i < 3; i++)
+                                      Text(facilities[index].data()['services'][i],
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                  ],
+                                ),
                               ],
                             ),
                             Column(

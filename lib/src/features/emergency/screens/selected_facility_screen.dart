@@ -43,24 +43,20 @@ class SelectedFacilityScreen extends StatelessWidget {
                 ),
                 Container(
                   height: screenHeight/3,
-                  child: ListView.builder(
-                      itemBuilder: (context, index){
-                        return Padding(
-                          padding: EdgeInsets.symmetric(vertical: screenHeight/100, horizontal: screenWidth/18),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              for (var service in facility.services)
-                                Text(
-                                  service,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                            ]
-                          ),
-                        );
-                      }
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: screenHeight/100, horizontal: screenWidth/18),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (var service in facility.services)
+                            Text(
+                              service,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                        ]
+                    ),
                   ),
                 ),
                 Padding(

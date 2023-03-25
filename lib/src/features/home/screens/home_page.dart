@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -24,6 +25,10 @@ class _HomePageState extends State<HomePage> {
     double screenHeight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
 
+    Future<void> logout() async {
+      await FirebaseAuth.instance.signOut();
+    }
+
     return  Scaffold(
       drawer: SizedBox(
         height: screenHeight,
@@ -37,7 +42,7 @@ class _HomePageState extends State<HomePage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text("Switch app theme",
+                      const Text("Switch app theme",
                         style: TextStyle(
                           fontSize: 16,
                         ),
@@ -51,9 +56,11 @@ class _HomePageState extends State<HomePage> {
                       }),
                     ],
                   ),
-                  Divider(thickness: 2,),
-                  TextButton(onPressed: (){}, child: Text("Logout")),
-                  Divider(thickness: 2,),
+                  const Divider(thickness: 2,),
+                  TextButton(onPressed: (){
+                    logout();
+                  }, child: const Text("Logout")),
+                  const Divider(thickness: 2,),
                 ],
               ),
             ),

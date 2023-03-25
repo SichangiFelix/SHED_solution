@@ -1,13 +1,18 @@
-import 'package:project/src/features/data/models/article.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'db_service.dart';
 
 class ArticlesServices {
 
   // Get all articles
-  Future<List<Article>> getArticles() async {
-    final snapshot = await db.collection('articles').get();
-    final articles = snapshot.docs.map((doc) => Article.fromJson(doc.data())).toList();
-    return articles;
+  final CollectionReference articlesCollection = db.collection('articles');
+
+  Stream<QuerySnapshot> getArticles() {
+    return articlesCollection.snapshots();
+  }
+
+  //Search article by name
+  Stream<QuerySnapshot> searchArticleByName(String name) {
+    return articlesCollection.where('title', isEqualTo: name).snapshots();
   }
 }

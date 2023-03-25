@@ -33,7 +33,7 @@ class _SpecialistViewState extends State<SpecialistView> {
               Text(
                 widget.title,
                 style: const TextStyle(
-                    color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                    fontSize: 16, fontWeight: FontWeight.bold),
               ),
               InkWell(
                 onTap: (){
@@ -42,7 +42,7 @@ class _SpecialistViewState extends State<SpecialistView> {
                 child: const Text(
                   "See All",
                   style: TextStyle(
-                      color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+                      fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ),
 
@@ -72,34 +72,31 @@ class _SpecialistViewState extends State<SpecialistView> {
                               context: context
                           );
                         },
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(20),
-                          child: Container(
-                            width: width *0.6,
-                            margin: const EdgeInsets.only(left: 3,right: 5),
-                            padding:const EdgeInsets.all(18),
-                            color: Colors.grey,
-
-                            child: Center(
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const CircleAvatar(
-                                    radius: 30,
-                                  ),
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.start,
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text(specialists[index].data()['name']),
-                                      const SizedBox(height:5),
-                                      Text(specialists[index].data()['specialty']),
-                                    ],
-                                  ),
+                        child: SizedBox(
+                          width: width *0.6,
+                          child: Card(
+                            elevation: 5,
+                            child: Padding(
+                              padding:const EdgeInsets.all(10),
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Image.asset("assets/icons/user_placeholder.png", height: 60,width: 60,),
+                                    Column(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(specialists[index].data()['name']),
+                                        const SizedBox(height:5),
+                                        Text(specialists[index].data()['specialty']),
+                                      ],
+                                    ),
 
 
-                                ],
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -224,4 +221,15 @@ class _SpecialistViewState extends State<SpecialistView> {
 
 }
 
+
+// Container(
+// width: width *0.6,
+// margin: const EdgeInsets.only(left: 8,right: 8),
+// padding:const EdgeInsets.all(18),
+// decoration: BoxDecoration(
+// color: Colors.white,
+// borderRadius: BorderRadius.circular(15),
+// ),
+// child:
+// ),
 

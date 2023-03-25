@@ -60,6 +60,7 @@ class MyApp extends StatelessWidget {
           outlinedButtonOutlineSchemeColor: SchemeColor.onBackground,
           switchSchemeColor: SchemeColor.onPrimaryContainer,
           switchThumbSchemeColor: SchemeColor.secondaryContainer,
+          unselectedToggleIsColored: true,
           inputDecoratorSchemeColor: SchemeColor.tertiary,
           appBarBackgroundSchemeColor: SchemeColor.onPrimary,
           bottomNavigationBarSelectedLabelSchemeColor: SchemeColor.primary,
@@ -96,6 +97,7 @@ class MyApp extends StatelessWidget {
           outlinedButtonOutlineSchemeColor: SchemeColor.onBackground,
           switchSchemeColor: SchemeColor.onPrimaryContainer,
           switchThumbSchemeColor: SchemeColor.secondaryContainer,
+          unselectedToggleIsColored: true,
           tabBarItemSchemeColor: SchemeColor.secondary,
           tabBarIndicatorSchemeColor: SchemeColor.secondary,
           bottomNavigationBarSelectedLabelSchemeColor: SchemeColor.primary,
@@ -108,7 +110,6 @@ class MyApp extends StatelessWidget {
           navigationBarBackgroundSchemeColor: SchemeColor.primaryContainer,
         ),
         visualDensity: FlexColorScheme.comfortablePlatformDensity,
-        // To use the Playground font, add GoogleFonts package and uncomment
         fontFamily: "Poppins",
       ),
       initialRoute: AuthPage.screenRoute,

@@ -43,24 +43,20 @@ class SelectedFacilityScreen extends StatelessWidget {
                 ),
                 Container(
                   height: screenHeight/3,
-                  child: ListView.builder(
-                      itemBuilder: (context, index){
-                        return Padding(
-                          padding: EdgeInsets.symmetric(vertical: screenHeight/100, horizontal: screenWidth/18),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              for (var service in facility.services)
-                                Text(
-                                  service,
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                  ),
-                                ),
-                            ]
-                          ),
-                        );
-                      }
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: screenHeight/100, horizontal: screenWidth/18),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          for (var service in facility.services)
+                            Text(
+                              service,
+                              style: const TextStyle(
+                                fontSize: 16,
+                              ),
+                            ),
+                        ]
+                    ),
                   ),
                 ),
                 Padding(
@@ -94,7 +90,6 @@ class SelectedFacilityScreen extends StatelessWidget {
             alignment: Alignment.bottomCenter,
             child: Container(
               height: screenHeight/12,
-              color: Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [

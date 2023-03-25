@@ -53,6 +53,7 @@ class EmergencyFacilitiesScreen extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
                               width: 1,
+                              color: Theme.of(context).primaryColor,
                             )
                         ),
                         child: Row(
@@ -68,22 +69,26 @@ class EmergencyFacilitiesScreen extends StatelessWidget {
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ) ,
-
-                                for (var i = 0; i < facilities[index].data()['services'].length; i++)
-                                  Text(facilities[index].data()['services'][i],
-                                    style: const TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w400,
-                                    ),
-                                  ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    for (var i = 0; i < 3; i++)
+                                      Text(facilities[index].data()['services'][i],
+                                        style: const TextStyle(
+                                          fontSize: 15,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                  ],
+                                ),
                               ],
                             ),
                             Column(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: const [
-                                Icon(Icons.not_listed_location, size: 30,),
-                                Icon(Icons.phone, size: 30,),
+                              children: [
+                                Icon(Icons.not_listed_location, size: 30,color: Theme.of(context).primaryColor,),
+                                Icon(Icons.phone, size: 30, color: Theme.of(context).primaryColor,),
                               ],
                             ),
                           ],

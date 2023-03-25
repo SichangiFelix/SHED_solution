@@ -65,7 +65,6 @@ class _HomePageState extends State<HomePage> {
             slivers: [
               SliverAppBar(
                 automaticallyImplyLeading: false,
-                backgroundColor: Colors.white,
                 pinned: false,
                 expandedHeight: 0,
                 flexibleSpace: FlexibleSpaceBar(

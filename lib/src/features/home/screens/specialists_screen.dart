@@ -26,7 +26,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
         child: ListView.builder(
           padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
     scrollDirection: Axis.vertical,
-    itemCount: 7,
+    itemCount: 5,
     itemBuilder: (context, index) {
             return Column(
               children: [
@@ -34,27 +34,26 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                   margin: const EdgeInsets.all(7),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(14),
-                      color: Colors.green
                   ),
-                  child: ListTile(
-                    tileColor: Colors.transparent,
-                    onTap: (){
-                      showSpecialistInfo(context);
-                    },
-                    leading: const CircleAvatar(
-                      radius: 27,
-                      backgroundImage: NetworkImage(''),
-                    ),
-                    //  child: Image.network(friend['photoUrl'])),
-                    title: const Text('Dr. Samir Sichangi',),
+                  child: Card(
+                    elevation: 5,
+                    child: ListTile(
+                      tileColor: Colors.transparent,
+                      onTap: (){
+                        showSpecialistInfo(context);
+                      },
+                      leading: Image.asset("assets/icons/user_placeholder.png", height: 60,width: 60,),
+                      //  child: Image.network(friend['photoUrl'])),
+                      title: const Text('Dr. Samir Sichangi',),
 
-                    subtitle: Container(
-                      child: const Text(
-                        'Gynaecologist',style: TextStyle(color: Colors.white),overflow: TextOverflow.ellipsis,
-                      ),),
+                      subtitle: Container(
+                        child: const Text(
+                          'Gynaecologist',overflow: TextOverflow.ellipsis,
+                        ),),
+                    ),
                   ),
                 ),
-                const Divider(thickness: 1,color: Colors.white60,indent: 10,endIndent: 10,)
+                const Divider(thickness: 1, indent: 10,endIndent: 10,)
               ],
             );
     }
@@ -69,10 +68,9 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
      builder: (BuildContext context) {
        return AlertDialog(
          contentPadding: const EdgeInsets.only(top: 0),
-         backgroundColor: Colors.grey,
          content: Container(
            child: Wrap(
-             alignment: WrapAlignment.start,
+             alignment: WrapAlignment.center,
              children: [
                Container(
                   width: width*0.75,
@@ -82,9 +80,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                    mainAxisAlignment: MainAxisAlignment.start,
                    crossAxisAlignment: CrossAxisAlignment.start,
                    children: [
-                     const CircleAvatar(
-                       radius: 35,
-                     ),
+                     Image.asset("assets/icons/user_placeholder.png", height: 60,width: 60,) ,
                      const SizedBox(width: 10,),
                      Column(
                        mainAxisAlignment: MainAxisAlignment.start,
@@ -100,16 +96,18 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                    ],
                  ),
                ),
-
                Container(
                  width: width*0.75,
                  padding: const EdgeInsets.symmetric(horizontal: 15),
                  child: const Text(
-                   'Gynecologists are medical professionals who specialize in the female reproductive system, including the uterus, ovaries, and vagina. They provide a wide range of healthcare services, including routine check-ups, prenatal care, family planning, and treatment for reproductive disorders.',
+                   'Gynecologists are medical professionals who specialize in the female '
+                       'reproductive system, including the uterus, ovaries, and vagina. '
+                       'They provide a wide range of healthcare services, including routine '
+                       'check-ups, prenatal care, family planning, and treatment for '
+                       'reproductive disorders.',
                    maxLines: 10,
                    overflow: TextOverflow.ellipsis,
                    style: TextStyle(
-                     color: Colors.white,
                      fontSize: 14,
                    ),
                  ),
@@ -120,17 +118,16 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
          actions: [
            Row(
              crossAxisAlignment: CrossAxisAlignment.center,
-             mainAxisAlignment: MainAxisAlignment.start,
+             mainAxisAlignment: MainAxisAlignment.center,
              children: [
                GestureDetector(
                  onTap: () {
-
                  },
                  child: Padding(
                    padding: const EdgeInsets.symmetric(horizontal: 0),
                    child: Container(
                      height: 35,
-                     width: width*0.75,
+                     width: width*0.5,
                      decoration: const BoxDecoration(
                          color: Colors.white,
                          borderRadius: BorderRadius.all(Radius.circular(5))),
@@ -144,6 +141,9 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                            Icons.chat_bubble,
                            color: Colors.black,
                            size: 24,
+                         ),
+                         SizedBox(
+                           width: 10,
                          ),
                          Text(
                            'Chat',

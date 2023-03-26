@@ -15,15 +15,21 @@ class LandingPage extends StatelessWidget {
       body: Center(
         child: Stack(
           children: [
-            // Container(
-            //  decoration: const BoxDecoration(
-            //    image: DecorationImage(image: NetworkImage('https://wallpapercave.com/dwp1x/wp5534738.jpg',),fit: BoxFit.cover)
-            //  ),
-            // ),
+            Container(
+             decoration: BoxDecoration(
+               image: DecorationImage(image: AssetImage("assets/images/land_image.png"),fit: BoxFit.cover)
+             ),
+            ),
             Align(
                 alignment: Alignment.bottomCenter,
                 child: Container(
-                  margin: EdgeInsets.only(bottom: screenHeight / 10),
+                  width: screenWidth/1.05,
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white.withOpacity(0.3),
+                  ),
+                  margin: EdgeInsets.only(bottom: screenHeight/10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -71,9 +77,14 @@ class LandingPage extends StatelessWidget {
                 )),
             Positioned(
               top: screenHeight/10,
-              left: screenWidth/30,
               child: Container(
-                  margin: const EdgeInsets.only(left: 15, right: 15, top: 50),
+                width: screenWidth/1.05,
+                  margin: EdgeInsets.only(left: (screenWidth-screenWidth/1.05)/2, right: (screenWidth-screenWidth/1.05)/2, top: 50),
+                  padding: EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: Colors.white.withOpacity(0.3),
+                  ),
                   child: const Text(
                     'Educating the Public on \n'
                     'Sexual Health Information \n'

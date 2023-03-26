@@ -27,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
           });
         },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.video_call_outlined),label: "Shorts"),
+          BottomNavigationBarItem(icon: Icon(Icons.chat_bubble_outline),label: "Chats"),
           BottomNavigationBarItem(icon: Icon(Icons.house),label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.call),label: "Emergency"),
         ],

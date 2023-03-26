@@ -35,7 +35,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
           return ListView.builder(
             padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
     scrollDirection: Axis.vertical,
-    itemCount: 5,
+    itemCount: specialists.length,
     itemBuilder: (context, index) {
               return Column(
                 children: [

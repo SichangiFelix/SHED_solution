@@ -37,7 +37,7 @@ class _TrendingViewState extends State<TrendingView> {
                       padding: const EdgeInsets.symmetric(
                           vertical: 10, horizontal: 8),
                       scrollDirection: Axis.horizontal,
-                      itemCount: 7,
+                      itemCount: trends.length,
                       itemBuilder: (context, index) {
                         return ClipRRect(
                           borderRadius: BorderRadius.circular(35),

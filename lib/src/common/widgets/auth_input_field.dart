@@ -21,10 +21,12 @@ class AuthInputField extends StatelessWidget {
     return Container(
       width: screenWidth/1.15,
       height: screenHeight/35,
+      margin: EdgeInsets.all(2),
       child: TextFormField(
         obscureText: isObsecured == null? false:isObsecured!,
         controller: controller,
         decoration: const InputDecoration(
+          filled: false,
             border: UnderlineInputBorder(
                 borderSide: BorderSide(
                   width: 1,
@@ -35,7 +37,12 @@ class AuthInputField extends StatelessWidget {
                 borderSide: BorderSide(
                   width: 1,
                 )
-            )
+            ),
+          focusedBorder: UnderlineInputBorder(
+              borderSide: BorderSide(
+                width: 1,
+              )
+          ),
         ),
       ),
     );

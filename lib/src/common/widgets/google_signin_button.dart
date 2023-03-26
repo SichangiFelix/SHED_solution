@@ -33,7 +33,6 @@ class GoogleSigninButton extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               const Icon(Icons.g_mobiledata, color: Colors.green, size: 40,),
                 const SizedBox(
                   width: 10,
                 ),

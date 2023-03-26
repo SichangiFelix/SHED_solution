@@ -142,7 +142,8 @@ class _TopicViewState extends State<TopicView> {
                               ),
                               child: InkWell(
                                 onTap: (){
-                                  Navigator.pushNamed(context, TopicContent.screenRoute,arguments: Article(articles[1].data()["author"],
+                                  Navigator.pushNamed(context, TopicContent.screenRoute,arguments: Article(
+                                      articles[1].data()["author"],
                                       topic: articles[1].data()["topic"],
                                       title: articles[1].data()["title"],
                                       description: articles[1].data()["description"],
@@ -190,16 +191,16 @@ class _TopicViewState extends State<TopicView> {
                               ),
                               child: InkWell(
                                 onTap: (){
-                                  Navigator.pushNamed(context, TopicContent.screenRoute,arguments: Article(articles[1].data()["author"],
-                                      topic: articles[1].data()["topic"],
-                                      title: articles[1].data()["title"],
-                                      description: articles[1].data()["description"],
-                                      url: articles[1].data()["url"],
-                                      urlToImage: articles[1].data()["urlToImage"],
-                                      content: articles[1].data()["content"]));
+                                  Navigator.pushNamed(context, TopicContent.screenRoute,arguments: Article(articles[3].data()["author"],
+                                      topic: articles[3].data()["topic"],
+                                      title: articles[3].data()["title"],
+                                      description: articles[3].data()["description"],
+                                      url: articles[3].data()["url"],
+                                      urlToImage: articles[3].data()["urlToImage"],
+                                      content: articles[3].data()["content"]));
                                 },
-                                child: const Center(
-                                    child: Text("Topic 3")
+                                child:  Center(
+                                    child: Text(articles[3].data()["title"])
                                 ),
                               )
                           ),
@@ -238,16 +239,16 @@ class _TopicViewState extends State<TopicView> {
                               ),
                               child: InkWell(
                                 onTap: (){
-                                  Navigator.pushNamed(context, TopicContent.screenRoute,arguments: Article(articles[0].data()["author"],
-                                      topic: articles[0].data()["topic"],
-                                      title: articles[0].data()["title"],
-                                      description: articles[0].data()["description"],
-                                      url: articles[0].data()["url"],
-                                      urlToImage: articles[0].data()["urlToImage"],
-                                      content: articles[0].data()["content"]));
+                                  Navigator.pushNamed(context, TopicContent.screenRoute,arguments: Article(articles[2].data()["author"],
+                                      topic: articles[2].data()["topic"],
+                                      title: articles[2].data()["title"],
+                                      description: articles[2].data()["description"],
+                                      url: articles[2].data()["url"],
+                                      urlToImage: articles[2].data()["urlToImage"],
+                                      content: articles[2].data()["content"]));
                                 },
-                                child: const Center(
-                                    child: Text("Topic 4")
+                                child:  Center(
+                                    child: Text(articles[2].data()["title"])
                                 ),
                               )
                           ),

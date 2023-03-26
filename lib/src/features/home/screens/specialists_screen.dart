@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:project/src/features/data/models/specialist.dart';
+import 'package:project/src/features/data/services/specialist_services.dart';
 
 class SpecialistScreen extends StatefulWidget {
   const SpecialistScreen({Key? key}) : super(key: key);
 
+  static const String screenRoute = "/specialistList";
   @override
   State<SpecialistScreen> createState() => _SpecialistScreenState();
 }
@@ -15,6 +18,7 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
   Widget build(BuildContext context) {
      height = MediaQuery.of(context).size.height;
      width = MediaQuery.of(context).size.width;
+
     return  Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: true,
@@ -23,45 +27,58 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
       body: Container(
         height: height,
         width: width,
-        child: ListView.builder(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
+        child: StreamBuilder(
+          stream: SpecialistServices().getSpecialists(),
+          builder: (BuildContext context, AsyncSnapshot snapshot) {
+            if(snapshot.hasData){
+              List specialists = snapshot.data!.docs;
+          return ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 8),
     scrollDirection: Axis.vertical,
     itemCount: 5,
     itemBuilder: (context, index) {
-            return Column(
-              children: [
-                Container(
-                  margin: const EdgeInsets.all(7),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                  ),
-                  child: Card(
-                    elevation: 5,
-                    child: ListTile(
-                      tileColor: Colors.transparent,
-                      onTap: (){
-                        showSpecialistInfo(context);
-                      },
-                      leading: Image.asset("assets/icons/user_placeholder.png", height: 60,width: 60,),
-                      //  child: Image.network(friend['photoUrl'])),
-                      title: const Text('Dr. Samir Sichangi',),
+              return Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.all(7),
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: Card(
+                      elevation: 5,
+                      child: ListTile(
+                        tileColor: Colors.transparent,
+                        onTap: (){
+                          showSpecialistInfo(context,
+                            specialty: specialists[index].data()["name"],
+                            name: specialists[index].data()["specialty"],
+                          );
+                        },
+                        leading: Image.asset("assets/icons/user_placeholder.png", height: 60,width: 60,),
+                        //  child: Image.network(friend['photoUrl'])),
+                        title:  Text(specialists[index].data()['name']),
 
-                      subtitle: Container(
-                        child: const Text(
-                          'Gynaecologist',overflow: TextOverflow.ellipsis,
-                        ),),
+                        subtitle: Container(
+                          child:  Text(
+                            specialists[index].data()['specialty'],
+                            overflow: TextOverflow.ellipsis,
+                          ),),
+                      ),
                     ),
                   ),
-                ),
-                const Divider(thickness: 1, indent: 10,endIndent: 10,)
-              ],
-            );
+                  const Divider(thickness: 1, indent: 10,endIndent: 10,)
+                ],
+              );
     }
+          );
+            }
+            return const Center(child: CircularProgressIndicator());
+  }
         ),
       ),
     );
   }
- showSpecialistInfo(BuildContext context, ) {
+ showSpecialistInfo(BuildContext context,{required String name,required String specialty} ) {
    // show the dialog
    showDialog(
      context: context,
@@ -85,10 +102,10 @@ class _SpecialistScreenState extends State<SpecialistScreen> {
                      Column(
                        mainAxisAlignment: MainAxisAlignment.start,
                        crossAxisAlignment: CrossAxisAlignment.start,
-                       children: const [
-                         Text('Dr Samir Sichangi'),
+                       children:  [
+                         Text(name),
                          SizedBox(height:5),
-                         Text('Gynaecologist')
+                         Text(specialty)
                        ],
                      ),
 

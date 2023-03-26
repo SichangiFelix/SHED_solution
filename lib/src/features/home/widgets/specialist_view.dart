@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:project/src/features/data/services/specialist_services.dart';
 
+import '../../topics/screens/topic_content_screen.dart';
 import '../screens/specialists_screen.dart';
 
 class SpecialistView extends StatefulWidget {
@@ -37,8 +38,8 @@ class _SpecialistViewState extends State<SpecialistView> {
               ),
               InkWell(
                 onTap: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (context)=>const SpecialistScreen()));
-                },
+                  Navigator.pushNamed(context, SpecialistScreen.screenRoute);
+                  },
                 child: const Text(
                   "See All",
                   style: TextStyle(
@@ -65,11 +66,11 @@ class _SpecialistViewState extends State<SpecialistView> {
                      return InkWell(
                         onTap: () {
                           //Show specialist info via modal that gives option to navigate to chat screen
-                          showSpecialistInfo(
+                          showSpecialistInfo(context,
                                specialty: specialists[index].data()["name"],
                                name: specialists[index].data()["specialty"],
-                               description: specialists[index].data()["description"],
-                              context: context
+                              // description: specialists[index].data()["description"],
+
                           );
                         },
                         child: SizedBox(
@@ -116,17 +117,16 @@ class _SpecialistViewState extends State<SpecialistView> {
       ],
     );
   }
-  showSpecialistInfo({required BuildContext context,required String specialty,required String name,required String description} ) {
+  showSpecialistInfo(BuildContext context,{required String name,required String specialty} ) {
     // show the dialog
     showDialog(
       context: context,
       builder: (BuildContext context) {
         return AlertDialog(
           contentPadding: const EdgeInsets.only(top: 0),
-          backgroundColor: Colors.grey,
           content: Container(
             child: Wrap(
-              alignment: WrapAlignment.start,
+              alignment: WrapAlignment.center,
               children: [
                 Container(
                   width: width*0.75,
@@ -136,16 +136,14 @@ class _SpecialistViewState extends State<SpecialistView> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const CircleAvatar(
-                        radius: 35,
-                      ),
+                      Image.asset("assets/icons/user_placeholder.png", height: 60,width: 60,) ,
                       const SizedBox(width: 10,),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+                        children:  [
                           Text(name),
-                          const SizedBox(height:5),
+                          SizedBox(height:5),
                           Text(specialty)
                         ],
                       ),
@@ -154,15 +152,18 @@ class _SpecialistViewState extends State<SpecialistView> {
                     ],
                   ),
                 ),
-
                 Container(
                   width: width*0.75,
                   padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Text(description
-                    , maxLines: 10,
+                  child: const Text(
+                    'Gynecologists are medical professionals who specialize in the female '
+                        'reproductive system, including the uterus, ovaries, and vagina. '
+                        'They provide a wide range of healthcare services, including routine '
+                        'check-ups, prenatal care, family planning, and treatment for '
+                        'reproductive disorders.',
+                    maxLines: 10,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      color: Colors.white,
+                    style: TextStyle(
                       fontSize: 14,
                     ),
                   ),
@@ -173,17 +174,16 @@ class _SpecialistViewState extends State<SpecialistView> {
           actions: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: () {
-
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 0),
                     child: Container(
                       height: 35,
-                      width: width*0.75,
+                      width: width*0.5,
                       decoration: const BoxDecoration(
                           color: Colors.white,
                           borderRadius: BorderRadius.all(Radius.circular(5))),
@@ -197,6 +197,9 @@ class _SpecialistViewState extends State<SpecialistView> {
                             Icons.chat_bubble,
                             color: Colors.black,
                             size: 24,
+                          ),
+                          SizedBox(
+                            width: 10,
                           ),
                           Text(
                             'Chat',
@@ -218,7 +221,6 @@ class _SpecialistViewState extends State<SpecialistView> {
       },
     );
   }
-
 }
 
 

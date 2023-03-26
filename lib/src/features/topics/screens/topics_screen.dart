@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:project/src/features/data/services/articles_services.dart';
 
+import '../../data/models/article.dart';
+import 'topic_content_screen.dart';
+
 class TopicsScreen extends StatefulWidget {
   static const String screenRoute = "/topics";
 
@@ -147,23 +150,34 @@ class _TopicsScreenState extends State<TopicsScreen> {
                        return GridView.builder(
                           padding: EdgeInsets.symmetric(horizontal: screenWidth/16),
                           itemBuilder: (context, index){
-                            return Container(
-                              height: screenHeight/10,
-                              decoration: BoxDecoration(
-                                gradient: RadialGradient(
-                                  colors: [
-                                    const Color(0x60FC67A7).withOpacity(0.7),
-                                    const Color(0x604E81EB),
-                                  ],
-                                  radius: 0.55,
-                                  stops: const [
-                                    0.3,
-                                    1.0
-                                  ],
+                            return InkWell(
+                              onTap:(){
+                                Navigator.pushNamed(context, TopicContent.screenRoute,arguments: Article(articles[index].data()["author"],
+                                    topic: articles[index].data()["topic"],
+                                    title: articles[index].data()["title"],
+                                    description: articles[index].data()["description"],
+                                    url: articles[index].data()["url"],
+                                    urlToImage: articles[index].data()["urlToImage"],
+                                    content: articles[index].data()["content"]));
+                              },
+                              child: Container(
+                                height: screenHeight/10,
+                                decoration: BoxDecoration(
+                                  gradient: RadialGradient(
+                                    colors: [
+                                      const Color(0x60FC67A7).withOpacity(0.7),
+                                      const Color(0x604E81EB),
+                                    ],
+                                    radius: 0.55,
+                                    stops: const [
+                                      0.3,
+                                      1.0
+                                    ],
+                                  ),
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
-                                borderRadius: BorderRadius.circular(20),
+                                child: Center(child: Text(articles[index].data()['title'])),
                               ),
-                              child: Center(child: Text(articles[index].data()['title'])),
                             );
                           },
                           itemCount: articles.length,

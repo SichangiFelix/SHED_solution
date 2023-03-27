@@ -1,8 +1,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:project/src/features/data/services/specialist_services.dart';
-
-import '../../topics/screens/topic_content_screen.dart';
 import '../screens/specialists_screen.dart';
 
 class SpecialistView extends StatefulWidget {
@@ -69,7 +67,7 @@ class _SpecialistViewState extends State<SpecialistView> {
                           showSpecialistInfo(context,
                                specialty: specialists[index].data()["name"],
                                name: specialists[index].data()["specialty"],
-                              // description: specialists[index].data()["description"],
+                               description: specialists[index].data()["description"],
 
                           );
                         },
@@ -117,7 +115,7 @@ class _SpecialistViewState extends State<SpecialistView> {
       ],
     );
   }
-  showSpecialistInfo(BuildContext context,{required String name,required String specialty} ) {
+  showSpecialistInfo(BuildContext context,{required String name,required String specialty,required String description} ) {
     // show the dialog
     showDialog(
       context: context,
@@ -155,12 +153,8 @@ class _SpecialistViewState extends State<SpecialistView> {
                 Container(
                   width: width*0.75,
                   padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: const Text(
-                    'Gynecologists are medical professionals who specialize in the female '
-                        'reproductive system, including the uterus, ovaries, and vagina. '
-                        'They provide a wide range of healthcare services, including routine '
-                        'check-ups, prenatal care, family planning, and treatment for '
-                        'reproductive disorders.',
+                  child:  Text(
+                    description,
                     maxLines: 10,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(

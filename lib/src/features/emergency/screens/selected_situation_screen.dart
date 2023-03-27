@@ -49,8 +49,10 @@ class SelectedSituationScreen extends StatelessWidget {
             child: Text(
               emergency.content.trim(),
               style: const TextStyle(
+                overflow: TextOverflow.ellipsis,
                 fontSize: 16,
               ),
+              maxLines: 6,
             ),
           ),
           Padding(

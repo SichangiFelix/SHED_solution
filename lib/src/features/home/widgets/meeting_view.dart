@@ -24,7 +24,7 @@ class _MeetingViewState extends State<MeetingView> {
           ),
         ),
         Container(
-          height: 165,
+          height: MediaQuery.of(context).size.height/4.8,
           child: ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
               scrollDirection: Axis.horizontal,

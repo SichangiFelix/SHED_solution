@@ -46,7 +46,7 @@ class _TopicViewState extends State<TopicView> {
         ),
         Container(
           margin: const EdgeInsets.only(left: 20,right: 20),
-          height: MediaQuery.of(context).size.height *0.3,
+          height: MediaQuery.of(context).size.height *0.35,
           child: StreamBuilder(
             stream: ArticlesServices().getArticles(),
             builder: (context, snapshot) {

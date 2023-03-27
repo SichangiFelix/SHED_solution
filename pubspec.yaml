@@ -45,6 +45,7 @@ dependencies:
   cloud_firestore: ^4.4.3
   flex_color_scheme: ^6.1.2
   intl:
+  google_maps_flutter: ^2.2.5
 
 dev_dependencies:
   flutter_test:

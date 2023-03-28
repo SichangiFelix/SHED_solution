@@ -49,6 +49,9 @@ class EmergencyFacilitiesScreen extends StatelessWidget {
                         padding: EdgeInsets.symmetric(horizontal: screenWidth/18, vertical: screenHeight/50),
                         margin: EdgeInsets.symmetric(horizontal: 12, vertical: screenHeight/100),
                         height: screenHeight/5,
+                        constraints: BoxConstraints(
+                          minHeight: 150,
+                        ),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(5),
                             border: Border.all(
@@ -59,37 +62,44 @@ class EmergencyFacilitiesScreen extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(facilities[index].data()['name'],
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ) ,
-                                Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    for (var i = 0; i < 3; i++)
-                                      Text(facilities[index].data()['services'][i],
-                                        style: const TextStyle(
-                                          fontSize: 15,
-                                          fontWeight: FontWeight.w400,
+                            Expanded(
+                              flex: 9,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(facilities[index].data()['name'],
+                                    maxLines: 2,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ) ,
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      for (var i = 0; i < 3; i++)
+                                        Text(facilities[index].data()['services'][i],
+                                          style: const TextStyle(
+                                            fontSize: 15,
+                                            fontWeight: FontWeight.w400,
+                                          ),
                                         ),
-                                      ),
-                                  ],
-                                ),
-                              ],
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Icon(Icons.not_listed_location, size: 30,color: Theme.of(context).primaryColor,),
-                                Icon(Icons.phone, size: 30, color: Theme.of(context).primaryColor,),
-                              ],
+                            Expanded(
+                              flex: 1,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Icon(Icons.not_listed_location, size: 30,color: Theme.of(context).primaryColor,),
+                                  Icon(Icons.phone, size: 30, color: Theme.of(context).primaryColor,),
+                                ],
+                              ),
                             ),
                           ],
                         ),

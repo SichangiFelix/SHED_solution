@@ -71,7 +71,10 @@ class _SpecialistViewState extends State<SpecialistView> {
 
                           );
                         },
-                        child: SizedBox(
+                        child: Container(
+                          constraints: BoxConstraints(
+                            minWidth: 220,
+                          ),
                           width: width *0.6,
                           child: Card(
                             elevation: 5,

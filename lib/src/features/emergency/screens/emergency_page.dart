@@ -36,6 +36,9 @@ class EmergencyPage extends StatelessWidget {
                 }
               },
               child: Container(
+                constraints: BoxConstraints(
+                  minHeight: 50,
+                ),
                 margin: EdgeInsets.symmetric(horizontal: 12, vertical: screenHeight/100),
                 height: screenHeight/14,
                 decoration: BoxDecoration(
@@ -44,14 +47,16 @@ class EmergencyPage extends StatelessWidget {
                     width: 1,
                   )
                 ),
-                child: ListTile(
-                  title: Text(emergencySections[index],
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w500,
+                child: Center(
+                  child: ListTile(
+                    title: Text(emergencySections[index],
+                      style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                      ),
                     ),
+                    trailing: const Icon(Icons.chevron_right, size: 30,),
                   ),
-                  trailing: const Icon(Icons.chevron_right, size: 30,),
                 ),
               ),
             );

@@ -12,6 +12,7 @@ class _MeetingViewState extends State<MeetingView> {
   @override
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
+    var height = MediaQuery.of(context).size.height;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -24,6 +25,9 @@ class _MeetingViewState extends State<MeetingView> {
           ),
         ),
         Container(
+          constraints: BoxConstraints(
+            minHeight: 160,
+          ),
           height: MediaQuery.of(context).size.height/4.8,
           child: ListView.builder(
               padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
@@ -31,8 +35,12 @@ class _MeetingViewState extends State<MeetingView> {
               itemCount: 7,
               itemBuilder: (context, index) {
 
-                return SizedBox(
+                return Container(
+                  constraints: BoxConstraints(
+                    minHeight: 150,
+                  ),
                   width: width *0.6,
+                  height: height*0.2,
                   child: Card(
                     elevation: 5,
                     margin: EdgeInsets.symmetric(horizontal: 8),

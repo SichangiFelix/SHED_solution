@@ -1,6 +1,23 @@
 # SHED (Sexual Health Education)
-This project is a mobile application built to sensitize and provide accurate information on matters sexual health.
-It is built for the youth in tertiary institutions in mind.
+
+Our sexual health education app (SHED) aims to address the numerous challenges facing young
+people and adults in Kenya and globally. Sexual health is a crucial aspect of overall health and
+well-being, but many people face obstacles such as lack of access to accurate information,
+healthcare services, and quality education. By emphasizing excellent health and well-being as
+well as quality education, our software can serve to promote good health and quality education
+while also equipping users with important life skills.
+In Kenya and around the world, young people and adults face substantial sexual health
+concerns. These include a lack of timely access to sexual health medical professionals,
+inadequate pharmaceutical knowledge, poor sexual hygiene, limited information on where to
+seek treatment in the event of a sexual health emergency, and misinformation provided as peer
+advice. These issues have resulted in a high number of deaths and other negative outcomes,
+particularly among young people. Unintended pregnancies, sexually transmitted illnesses,
+unsafe abortions, and HIV/AIDS are just a few of the consequences of a lack of comprehensive
+sexual health education. Young people in Kenya and around the world face enormous barriers
+to obtaining correct sexual health information, and the majority rely on peers, who frequently
+lack proper understanding themselves. This condition is even worse for marginalized groups,
+such as those living in poverty, rural locations, or with disabilities.
+
 
 ## How to get started and run this project.
 ### 1. Install and setup either android studio or Visual studio code, or your favourite code editor
